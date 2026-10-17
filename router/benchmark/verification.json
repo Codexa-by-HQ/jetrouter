@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-10-17T02:58:59.549Z",
+  "name": "jetrouter",
+  "version": "0.1.0-experimental.1",
+  "sourceSha256": "f88c0034c337257031bc290bc639018c66aca4a94cfcb224b449595a07426e62",
+  "sourceHashDefinition": "Sorted JS source filename + NUL + contents + NUL",
+  "runtimeVersions": {
+    "node": "24.21.0",
+    "bun": "1.4.3",
+    "deno": "deno 2.9.7 (stable, release, x86_64-pc-windows-msvc)"
+  },
+  "checks": [
+    {
+      "name": "routing-bun",
+      "result": {
+        "tests": 48,
+        "passed": 48,
+        "failed": 0
+      }
+    },
+    {
+      "name": "routing-deno",
+      "result": {
+        "tests": 48,
+        "passed": 48,
+        "failed": 0
+      }
+    },
+    {
+      "name": "source-audit",
+      "result": {
+        "zeroRuntimeDependencies": true,
+        "hostIndependentRuntime": true,
+        "documentedFunctions": 94,
+        "runtimeSourceBytes": 69694
+      }
+    },
+    {
+      "name": "memory",
+      "result": {
+        "removedPayloadCollected": true,
+        "discardedSnapshotCollected": true,
+        "distinctPathLookups": 250000,
+        "heapBefore": 5108616,
+        "heapAfter": 5109592,
+        "retainedGrowthBytes": 976,
+        "heapAfterMutations": 5312200,
+        "checksum": 3277780,
+        "status": "passed",
+        "limitation": "Targeted GC and bounded-growth checks; not a proof for every host or workload"
+      }
+    }
+  ],
+  "nodeRouting": {
+    "tests": 48,
+    "passed": 48,
+    "failed": 0,
+    "execution": "npm run check after final source constants cleanup"
+  },
+  "typeDeclarations": "passed source suite and isolated tarball consumer",
+  "formatting": "npm run check passed",
+  "tarball": {
+    "path": "D:/WORK/codexa/Codexa-Core/benchmarks/.tools/jetrouter-release/jetrouter-0.1.0-experimental.1.tgz",
+    "sha256": "313618696b1359ca75e5f5e343043f24d82e4f72c33efd01cb86332a41ee4bad",
+    "compressedBytes": 23341,
+    "consumerSmoke": [
+      "Node",
+      "Bun",
+      "Deno",
+      "TypeScript"
+    ],
+    "externalRuntimeDependencies": 0,
+    "entries": 14
+  },
+  "publication": "not published; no remote configured",
+  "benchmarkInterpretation": "Prior local HTTP speed rankings withdrawn; no final-source HTTP speed claim"
+}
