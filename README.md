@@ -11,7 +11,7 @@ Status: **experimental**. This package is prepared for its first npm release. Th
 ## Install and match
 
 ```sh
-npm install jetrouter@next
+npm install jetrouter
 ```
 
 ```js
