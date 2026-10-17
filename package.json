@@ -1,12 +1,12 @@
 {
   "name": "jetrouter",
-  "version": "0.1.0-experimental.1",
+  "version": "0.1.0",
   "description": "A fast, zero-dependency HTTP routing engine.",
   "type": "module",
   "license": "MIT",
   "author": {
     "name": "Hamza-Qureshi09",
-    "url": "https://github.com/Hamza-Qureshi09"
+    "url": "https://github.com/Codexa-by-HQ"
   },
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
