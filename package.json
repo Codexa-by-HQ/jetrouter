@@ -1,6 +1,6 @@
 {
   "name": "jetrouter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A fast, zero-dependency HTTP routing engine.",
   "type": "module",
   "license": "MIT",
