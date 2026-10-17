@@ -1,0 +1,49 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - name: Ensure a trusted-publishing capable npm CLI
+        run: npm install --global npm@11
+      - name: Verify package, repository, and release tag
+        id: release
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync, appendFileSync } from 'node:fs';
+          const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+          if (pkg.name !== 'jetrouter') throw new Error('Unexpected package name');
+          if (process.env.GITHUB_REF_NAME !== 'v' + pkg.version) throw new Error('Tag/version mismatch');
+          const url = typeof pkg.repository === 'string' ? pkg.repository : pkg.repository?.url;
+          const expected = 'https://github.com/' + process.env.GITHUB_REPOSITORY;
+          if (url?.replace(/^git\+/, '').replace(/\.git$/, '') !== expected) {
+            throw new Error('Set real repository metadata before enabling trusted publishing');
+          }
+          appendFileSync(process.env.GITHUB_OUTPUT, 'tag=' + (pkg.version.includes('-') ? 'next' : 'latest') + '\n');
+          NODE
+      - run: npm ci
+      - run: npm run check
+      - run: npm run test:memory
+      - run: npm pack --dry-run
+      - name: Publish checked sources using npm OIDC
+        run: npm publish --ignore-scripts --access public --tag "${{ steps.release.outputs.tag }}"
