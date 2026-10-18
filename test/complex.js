@@ -246,6 +246,16 @@ export function runComplexTests(
           assert(before !== a.snapshot());
         }
   });
+  test("native regex parameter names avoid generated-name collisions", () => {
+    const wildcard = routeToRegExp("/x/*/:_0").exec("/x/first/second").groups;
+    equal(wildcard._0, "second");
+    equal(wildcard.__0, "first");
+    const unusual = routeToRegExp("/x/:a-b/:__router_61_2d_62").exec(
+      "/x/first/second",
+    ).groups;
+    equal(unusual.__router_61_2d_62, "second");
+    equal(unusual.___router_61_2d_62, "first");
+  });
   test("rejected deep batch retains the already compiled generation", () => {
     const r = new Router().add("GET", "/healthy/:id", "ok");
     const old = r.snapshot(),

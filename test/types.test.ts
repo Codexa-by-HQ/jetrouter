@@ -1,9 +1,4 @@
-import {
-  Router,
-  createRouter,
-  type RouteMatch,
-  type Matcher,
-} from "../src/index.js";
+import { Router, createRouter, type RouteMatch, type Matcher } from "jetrouter";
 type Data = { id: number; handler: () => string };
 const router = createRouter<Data>();
 router.add("GET", "/users/:id", { id: 1, handler: () => "ok" });
@@ -19,3 +14,7 @@ new Router({ trailingSlash: "sometimes" });
 // @ts-expect-error params are declared read-only
 if (result?.params) result.params.id = "mutated";
 void [matcher, id, parameter];
+
+new Router({ allowCustomRegex: false });
+// @ts-expect-error the regex policy must be a boolean
+new Router({ allowCustomRegex: "false" });

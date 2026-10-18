@@ -17,6 +17,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     environment: npm
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -24,26 +25,34 @@ jobs:
           node-version: "24"
           registry-url: https://registry.npmjs.org
           package-manager-cache: false
-      - name: Ensure a trusted-publishing capable npm CLI
-        run: npm install --global npm@11
-      - name: Verify package, repository, and release tag
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.4.3"
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: "2.9.7"
+      - run: npm install --global npm@11
+      - name: Verify release identity
         id: release
         run: |
           node --input-type=module <<'NODE'
           import { readFileSync, appendFileSync } from 'node:fs';
           const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
-          if (pkg.name !== 'jetrouter') throw new Error('Unexpected package name');
-          if (process.env.GITHUB_REF_NAME !== 'v' + pkg.version) throw new Error('Tag/version mismatch');
-          const url = typeof pkg.repository === 'string' ? pkg.repository : pkg.repository?.url;
-          const expected = 'https://github.com/' + process.env.GITHUB_REPOSITORY;
-          if (url?.replace(/^git\+/, '').replace(/\.git$/, '') !== expected) {
-            throw new Error('Set real repository metadata before enabling trusted publishing');
+          if (pkg.name !== 'jetrouter' || !/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(pkg.version)) {
+            throw new Error('Unexpected package name or version');
           }
-          appendFileSync(process.env.GITHUB_OUTPUT, 'tag=' + (pkg.version.includes('-') ? 'next' : 'latest') + '\n');
+          if (process.env.GITHUB_REF_NAME !== 'v' + pkg.version) throw new Error('Tag/version mismatch');
+          if (pkg.repository?.url !== 'git+https://github.com/' + process.env.GITHUB_REPOSITORY + '.git') {
+            throw new Error('Repository metadata mismatch');
+          }
+          appendFileSync(process.env.GITHUB_OUTPUT,
+            'tag=' + (pkg.version.includes('-') ? 'next' : 'latest') + '\n');
           NODE
       - run: npm ci
       - run: npm run check
+      - run: npm run test:security -- --runtime=bun --runtime=deno
       - run: npm run test:memory
-      - run: npm pack --dry-run
-      - name: Publish checked sources using npm OIDC
-        run: npm publish --ignore-scripts --access public --tag "${{ steps.release.outputs.tag }}"
+      - name: Verify the release tarball on Node, Bun, and Deno
+        run: npm run test:package -- --runtime=bun --runtime=deno
+      - name: Publish source files using OIDC
+        run: npm publish --access public --tag "${{ steps.release.outputs.tag }}"

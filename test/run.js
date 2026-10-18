@@ -1,3 +1,6 @@
+import { runRegexpTests } from "./regexp.js";
+import { runHardeningTests } from "./hardening.js";
+import { runReviewTests } from "./review.js";
 import { runComplexTests } from "./complex.js";
 import {
   Router,
@@ -6,7 +9,7 @@ import {
   findRoute,
   removeRoute,
   routeToRegExp,
-} from "../src/index.js";
+} from "./engine.js";
 
 let count = 0,
   failed = 0;
@@ -422,6 +425,12 @@ test("overlapping generated corpus preserves compilation and snapshot semantics"
 });
 
 runComplexTests({ test, equal, assert, throws }, Router, routeToRegExp);
+
+runReviewTests({ test, equal, assert, throws }, Router);
+
+runHardeningTests({ test, equal, assert, throws }, Router);
+
+runRegexpTests({ test, equal, assert, throws }, Router);
 
 console.log(JSON.stringify({ tests: count, passed: count - failed, failed }));
 if (failed) throw new Error(`${failed} test groups failed`);

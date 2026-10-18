@@ -1,177 +1,194 @@
 # JetRouter
 
-**A fast, zero-dependency HTTP routing engine.**
+A fast, zero-dependency HTTP routing engine.
 
-Maintained by [Codexa-by-HQ](https://github.com/Codexa-by-HQ). Author: [Hamza-Qureshi09](https://github.com/Hamza-Qureshi09). [Source](https://github.com/Codexa-by-HQ/jetrouter) · [Issues](https://github.com/Codexa-by-HQ/jetrouter/issues).
+[![npm version](https://img.shields.io/npm/v/jetrouter)](https://www.npmjs.com/package/jetrouter) [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-JetRouter matches HTTP methods and URL pathnames. It is independent of servers, runtimes, request objects, middleware systems, and application frameworks. The engine is standard ESM JavaScript with TypeScript declarations and no external runtime dependencies.
+JetRouter matches HTTP methods and URL pathnames. It provides exact lookups, parameters, wildcards, optional patterns, route mutation, and stable snapshots through a synchronous API.
 
-Status: **experimental**. This package is prepared for its first npm release. The install command applies after publication.
+The engine uses standard ESM JavaScript and includes TypeScript declarations. It has no server, filesystem, environment, or runtime-specific dependencies. Use it with Node.js, Bun, Deno, or a Fetch-compatible host.
 
-## Install and match
+Tested with Node.js 24.21.0, Bun 1.4.3, and Deno 2.9.7.
+
+Examples below target JetRouter 0.2.0. The custom-regex rejection option is available from that version.
+
+## Install
 
 ```sh
 npm install jetrouter
 ```
 
-```js
-import { Router } from "jetrouter";
-
-const router = new Router();
-router.add("GET", "/health", { action: "health" });
-router.add("GET", "/users/:id", { action: "show-user" });
-router.add("GET", "/users/:id/posts/:post", { action: "show-post" });
-router.compile(); // Prepare the matching generation during startup.
-
-router.find("GET", "/users/42/posts/7");
-// { data: { action: 'show-post' }, params: { id: '42', post: '7' } }
-router.find("GET", "/missing"); // undefined
+```sh
+bun add jetrouter
 ```
 
-An adapter supplies the method and pathname, then invokes the handler stored as route data. It can obtain a pathname with `new URL(request.url).pathname`. JetRouter imports no Node, Bun, Deno, filesystem, environment, or server APIs.
+With Deno, import from `npm:jetrouter`. The package publishes its source files directly. consumers do not run a build step.
 
-## Matching approach
-
-1. Exact routes use direct lookup by method and normalized pathname.
-2. Ordinary dynamic routes use bounded, prefix-factored combined regular expressions and precomputed capture mappings.
-3. Proven simple partitions use literal/capture plans or suffix indexes to avoid unnecessary regex work.
-4. Constraints, case-insensitive matching, and competing patterns retain an independent segment matching path when combining them would change behavior.
-
-Patterns are parsed at registration. `compile()` builds a matching generation; the first lookup compiles lazily if needed. Compilation does not generate executable JavaScript or use eval, Wasm, native addons, or third-party parsers. Group sizes and optional expansions are bounded.
-
-## Registration
-
-| API                                                     | Behavior                                                                            |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `new Router<T>(options?)` / `createRouter<T>(options?)` | Create independent registration and compilation state.                              |
-| `add(method, pattern, data)`                            | Register one route; return this router. Duplicate normalized method/pattern throws. |
-| `addMany(definitions)`                                  | Validate the entire iterable before committing any registrations.                   |
-| `replace(method, pattern, data)`                        | Insert or replace explicitly; retain existing registration priority.                |
-| `remove(method, pattern)`                               | Remove that textual definition and all expansions; return a boolean.                |
-| `has(method, pattern)`                                  | Check a textual registration rather than match a request.                           |
-| `clear()`                                               | Remove live registrations and invalidate the compiled generation.                   |
-| `routes()`                                              | Read-only definition records with preserved data references.                        |
-| `size`                                                  | Registration count before optional expansion.                                       |
+## Match routes
 
 ```js
-router.addMany([
-  { method: "GET", pattern: "/teams/:team", data: "team.show" },
-  { method: "POST", pattern: "/teams", data: "team.create" },
-]);
-router.replace("GET", "/health", { action: "updated-health" });
-router.remove("GET", "/teams/:team"); // true
+import { Router } from "jetrouter"
+
+const router = new Router()
+  .add("GET", "/health", "health")
+  .add("GET", "/users/:id", "users.show")
+  .add("GET", "/users/:id/posts/:post", "posts.show")
+  .compile()
+
+router.find("GET", "/users/42/posts/7")
+// { data: "posts.show", params: { id: "42", post: "7" } }
+
+router.find("GET", "/missing")
+// undefined
 ```
 
-Mutations invalidate the live compiled generation. Prefer a registration batch followed by compilation at startup. Data remains by reference, including false, zero, null, and undefined. An undefined data value still has a match record; only an absent match returns undefined.
+Data can be a function, object, identifier, or any other value. References are preserved, including `null`, `false`, `0`, and `undefined`. Check whether a match exists rather than testing its data value.
 
-## Lookup and snapshots
+Call `compile()` after registration to prepare the table before accepting requests. Otherwise, the first lookup compiles it lazily.
 
-| API                                   | Behavior                                                     |
-| ------------------------------------- | ------------------------------------------------------------ |
-| `find(method, pathname, options?)`    | Winning match record, or undefined.                          |
-| `findAll(method, pathname, options?)` | Matches in most-specific-first order, once per registration. |
-| `matcher()`                           | Bound function that sees subsequent mutations.               |
-| `snapshot()`                          | Bound function retaining the current compiled generation.    |
-| `compile()`                           | Prepare the live generation; return this router.             |
-| `inspect()`                           | Read generation and compiler statistics.                     |
-| `toRegExp(pattern)`                   | Native RegExp with named parameter captures.                 |
-| `options`                             | Read-only resolved configuration.                            |
+## Use with Fetch
 
 ```js
-const live = router.matcher();
-const frozen = router.snapshot();
-router.replace("GET", "/health", "new-health");
+import { Router } from "jetrouter"
 
-live("GET", "/health"); // New data.
-frozen("GET", "/health"); // Data from the captured generation.
-router.find("GET", "/users/42", { params: false }); // { data }
+const router = new Router({ allowCustomRegex: false })
+  .add("GET", "/health", () => Response.json({ ok: true }))
+  .add("GET", "/users/:id", (params) => Response.json({ id: params.id }))
+  .compile()
+
+export function fetch(request) {
+  const pathname = new URL(request.url).pathname
+  const match = router.find(request.method, pathname)
+  return match
+    ? match.data(match.params ?? {})
+    : new Response("Not found", { status: 404 })
+}
 ```
 
-Release snapshots when no longer needed: retaining one intentionally retains its generation and data. JetRouter has no pathname cache. Static match records can be shared and are frozen. Dynamic maps are request-local; their prototype is not part of the contract. Treat returned values as read-only.
+Pass this handler to your host's Fetch-compatible server API. The application owns server startup, authentication, middleware, request limits, and responses.
 
-Functional conveniences are also exported: `addRoute`, `findRoute`, `findAllRoutes`, `removeRoute`, and `routeToRegExp`. Source and declarations include examples.
+## Pattern syntax
 
-## Pattern grammar
+| Pattern              | Meaning                                                 |
+| -------------------- | ------------------------------------------------------- |
+| `/users/new`         | Exact pathname                                          |
+| `/users/:id`         | One nonempty segment                                    |
+| `/users/:id?`        | Optional segment                                        |
+| `/files/:path+`      | One or more final segments                              |
+| `/files/:path*`      | Zero or more final segments                             |
+| `/assets/**`         | Optional final remainder, captured as `_` when present  |
+| `/assets/**:path`    | Required named remainder                                |
+| `/files/*`           | Unnamed segment, also matching an omitted final segment |
+| `/files/file-*.json` | Unnamed capture within a segment                        |
+| `/image/:name.:ext`  | Multiple named captures in a segment                    |
+| `/users/:id(\d+)`    | Explicit native regex constraint                        |
+| `/book{s}?`          | Optional literal group                                  |
 
-| Pattern                       | Meaning                                              |
-| ----------------------------- | ---------------------------------------------------- |
-| `/health`                     | Exact literal pathname                               |
-| `/users/:id`                  | Required single-segment parameter                    |
-| `/users/:id?`                 | Optional whole parameter segment                     |
-| `/files/:path+`               | Required final multi-segment parameter               |
-| `/files/:path*`               | Optional final multi-segment parameter               |
-| `/files/*`                    | Unnamed single-segment wildcard; optional when final |
-| `/files/*.png`                | Unnamed capture within a segment                     |
-| `/files/file-*-*.txt`         | Multiple unnamed captures                            |
-| `/assets/**`                  | Final catch-all, including an omitted remainder      |
-| `/assets/**:rest`             | Required final named catch-all                       |
-| `/users/:id(\d+)`             | Custom constraint on one segment                     |
-| `/image/:name.:ext(png\|jpg)` | Multiple captures and a segment constraint           |
-| `/book{s}?`                   | Optional literal group                               |
-| `/x{/:id}`                    | Required inline group                                |
-| `/literal\:name/\*`           | Escaped literal syntax                               |
+Escape backslashes in JavaScript strings: `"/users/:id(\\d+)"`. A hyphen immediately following a parameter belongs to its name. escape it when it should be a literal delimiter.
 
-Double backslashes in JavaScript strings: `'/users/:id(\\d+)'` represents a digit constraint. Numeric unnamed capture keys are strings ("0", "1", ...). `toRegExp()` encodes them as named groups \_0, \_1, etc.; matching returns the original names.
+Catch-alls and repeated parameters must be final. Static structure takes precedence over parameters, then catch-alls. Constraints and required terminal captures resolve otherwise equivalent dynamic patterns. registration order resolves remaining ties.
 
-Catch-alls and repeated parameters must be final. Repeated parameters cannot carry custom constraints. Repeated brace groups cannot span segments. Names must be unique within each expansion. Escaped separators are rejected; encoded %2F values can be captured raw. Constraint expressions use the host RegExp engine and have its complexity characteristics. Unsupported patterns fail at registration.
+`findAll()` returns matching registrations in the same specificity order, once per registration. Matching does not add implicit `HEAD` or `OPTIONS` behavior.
 
-## Selection and normalization
+## API
 
-Static structure precedes parameters; parameters precede catch-alls. Within equivalent dynamic structure, constrained/required terminal patterns precede optional unconstrained ones. Registration order breaks remaining ties.
+| Method                                | Purpose                                                     |
+| ------------------------------------- | ----------------------------------------------------------- |
+| `add(method, pattern, data)`          | Register a route. reject an existing textual registration   |
+| `addMany(definitions)`                | Validate and register a batch atomically                    |
+| `replace(method, pattern, data)`      | Insert or replace, retaining existing registration priority |
+| `remove(method, pattern)`             | Remove a textual registration and its expansions            |
+| `has(method, pattern)`                | Check a textual registration                                |
+| `find(method, pathname, options?)`    | Return `{ data, params }` or `undefined`                    |
+| `findAll(method, pathname, options?)` | Return all matching registrations                           |
+| `matcher()`                           | Return a bound matcher that observes later mutations        |
+| `snapshot()`                          | Return a matcher pinned to the current routing generation   |
+| `compile()`                           | Prepare the current generation                              |
+| `clear()`                             | Remove all live registrations                               |
+| `routes()` / `inspect()`              | Inspect registrations / compilation statistics              |
+| `toRegExp(pattern)`                   | Return an anchored native regular expression                |
 
-Use "\*", an empty string, or undefined for method-independent registrations. A method-specific structural bucket shadows the method-independent bucket of the same shape. GET does not automatically register HEAD or OPTIONS; adapters decide those policies. Methods normalize to uppercase, including other valid HTTP method tokens.
+`size` counts registrations before optional expansion. `options` exposes resolved configuration. The functional API exports `createRouter`, `addRoute`, `findRoute`, `findAllRoutes`, `removeRoute`, and `routeToRegExp`.
 
-Supply a pathname beginning with "/". Matching does not parse URLs or strip query strings. Defaults are case-sensitive matching, raw encoded values, and ignoring **one** trailing slash. Dot segments resolve only with the lookup option `{ normalize: true }`.
+## Options
+
+| Option             | Default    | Behavior                                                                    |
+| ------------------ | ---------- | --------------------------------------------------------------------------- |
+| `trailingSlash`    | `"ignore"` | Ignore exactly one trailing slash. `"strict"` preserves it                  |
+| `caseSensitive`    | `true`     | Match literal pathname case                                                 |
+| `decodeParams`     | `false`    | Preserve encoded captures. use `true` or a decoder function to decode       |
+| `allowCustomRegex` | `true`     | Permit explicit native regex syntax. `false` rejects it during registration |
+| `maxExpansions`    | `128`      | Bound concrete variants per pattern, including omitted final wildcards      |
+| `maxGroupSize`     | `64`       | Bound alternatives per combined regex, from 1 to 256                        |
+| `strategy`         | `"hybrid"` | Use `"segment"` for the reference segment execution path                    |
+
+Lookups accept `{ params: false }` to return data without a parameter map. `{ normalize: true }` explicitly resolves dot segments. Parameter extraction is enabled by default. dot normalization is disabled.
+
+Pass an absolute pathname beginning with `/`. JetRouter does not strip query strings, parse full URLs, or decode pathnames before selecting a route. Extract `new URL(request.url).pathname` in the adapter.
+
+## Mutations and snapshots
 
 ```js
-const strict = new Router({ trailingSlash: "strict", decodeParams: true });
-strict.add("GET", "/files/:name", "file");
-strict.find("GET", "/files/a%20b"); // params.name === 'a b'
-strict.find("GET", "/files/a%20b/"); // undefined
+const router = new Router().add("GET", "/users/:id", "old")
+const live = router.matcher()
+const old = router.snapshot()
+
+router.replace("GET", "/users/:id", "new")
+live("GET", "/users/42").data // "new"
+old("GET", "/users/42").data // "old"
 ```
 
-| Router option   | Default  | Meaning                                                                                                      |
-| --------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `trailingSlash` | "ignore" | Ignore one final slash, or use "strict".                                                                     |
-| `caseSensitive` | true     | Literal pathname case matching.                                                                              |
-| `decodeParams`  | false    | true uses decodeURIComponent; a function supplies a custom decoder. Exceptions propagate after a full match. |
-| `maxExpansions` | 128      | Maximum expanded variants per pattern.                                                                       |
-| `maxGroupSize`  | 64       | Combined-regex alternatives per chunk, from 1 through 256.                                                   |
-| `strategy`      | "hybrid" | "segment" selects the diagnostic reference matcher with the same grammar.                                    |
+Mutations invalidate the live generation. A retained snapshot intentionally keeps its generation and route data alive. Release snapshots when no longer needed. The router does not cache request pathnames.
 
-## Source map
+## TypeScript
 
-| File                             | Responsibility                                                   |
-| -------------------------------- | ---------------------------------------------------------------- |
-| src/index.js                     | Public exports and functional conveniences.                      |
-| src/router.js                    | Registration, mutation, live matchers, stable snapshots.         |
-| src/options.js, src/constants.js | Configuration and shared vocabulary.                             |
-| src/pattern.js                   | Grammar parsing, bounded expansion, path normalization.          |
-| src/compiler.js                  | Method tables, exact lookup, ordered dynamic dispatch.           |
-| src/group.js                     | Prefix partitions, captures, suffix indexes, fallback selection. |
-| src/regex.js                     | Combined regexes and standalone pattern conversion.              |
-| src/linear.js                    | Precomputed literal/parameter matching plans.                    |
-| src/matcher.js                   | Specificity ordering and independent segment matching.           |
-| src/index.d.ts                   | TypeScript contracts and editor examples.                        |
+```ts
+import { Router } from "jetrouter"
 
-Every implementation function has a purpose comment and an example. Regression tests remain in the repository. The npm files whitelist includes only source, declarations, README, license, and package metadata.
+type RouteData = { action: string }
+const router = new Router<RouteData>()
+router.add("GET", "/users/:id", { action: "users.show" })
 
-## Runtime support and development
+const match = router.find("GET", "/users/42")
+match?.data.action // string
+match?.params?.id // string | undefined
+```
 
-Locally tested versions: Node 24.21.0, Bun 1.4.3 (Windows x64 baseline), Deno 2.9.7. Engine code is shared unchanged. Other versions require verification before extending the support claim.
+## Security and matching costs
+
+Exact routes use method/path lookups. Dynamic routes use prefix-grouped regexes and segment matching. Ordinary multi-capture segments use bounded matching plans.
+
+Explicit custom constraints and expressions returned by `toRegExp()` use the host's native regex engine. Arbitrary expressions can backtrack excessively. Set `allowCustomRegex: false` when custom constraints are unnecessary, register patterns from trusted configuration, and enforce request-length limits in the adapter.
+
+Decoded captures remain untrusted application input. Decoding happens after route selection and runs once. decoder errors propagate. Static match records can be shared and frozen. Dynamic parameter maps are request-local. Treat returned values as read-only.
+
+## Development
 
 ```sh
 npm ci
 npm run check
 npm run test:memory
-bun test/run.js
-deno run --no-config --no-lock test/run.js
+npm run test:package
 ```
 
-The portable suite has 48 groups, including generated overlaps, deep optional patterns, constraints, catch-alls, Unicode, encoding, special parameter names, snapshots, mutation, and atomic failures. Source checks enforce runtime independence and function examples. Targeted Node garbage-collection checks cover removed payloads, discarded snapshots, path churn, and repeated mutation. They are bounded retention checks rather than a universal proof against leaks.
+With Bun and Deno installed:
 
-## Measurements and publishing
+```sh
+npm run test:package -- --runtime=bun --runtime=deno
+```
 
-See [benchmark evidence](benchmark/README.md) for observations, exact requests, counts, versions, and limitations. The previous short HTTP run does **not** establish that JetRouter beats Hono or native Bun. HTTP throughput includes runtime and response work; isolated matcher speed must be measured separately.
+The installed-package suite checks the same npm contents on all three runtimes. Development tools are TypeScript and Prettier. there is no bundler or build script.
 
-See [the release guide](docs/RELEASING.md) for the first npm release, versioning, package inspection, manual publishing, and optional GitHub Actions setup.
+## Benchmarks
+
+The benchmark suite measures static, parameterized, deeply nested, wildcard, overlapping, constrained, and missing routes. Routing-only measurements are separate from full HTTP stack measurements.
+
+The HTTP run completed 117 samples and 17,517,882 validated responses. Identical-code control variation and client CPU warnings prevent a reliable overall framework ranking. Results are workload-specific. No universal speed advantage is claimed. See the [benchmark report](https://github.com/Codexa-by-HQ/jetrouter/blob/HEAD/benchmark/results.md) and [raw evidence](https://github.com/Codexa-by-HQ/jetrouter/blob/HEAD/benchmark/README.md).
+
+## Documentation
+
+See the [API reference](https://github.com/Codexa-by-HQ/jetrouter/blob/HEAD/docs/API.md), [security notes](https://github.com/Codexa-by-HQ/jetrouter/blob/HEAD/docs/SECURITY.md), and [release guide](https://github.com/Codexa-by-HQ/jetrouter/blob/HEAD/docs/RELEASING.md).
+
+## License
+
+MIT.

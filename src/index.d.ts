@@ -4,6 +4,10 @@ export interface RouterOptions {
   caseSensitive?: boolean;
   /** Default false preserves encoded parameter values. */
   decodeParams?: boolean | ((value: string) => string);
+  /** Permit explicit native regex constraints. Set false to reject them at registration.
+   * @example new Router({ allowCustomRegex: false }).add("GET", "/users/:id", 1);
+   */
+  allowCustomRegex?: boolean;
   maxExpansions?: number;
   /** Limit the number of alternatives in a single compiled regex (1..256). */
   maxGroupSize?: number;
@@ -40,6 +44,13 @@ export type Matcher<T> = (
   pathname: string,
   options?: FindOptions,
 ) => RouteMatch<T> | undefined;
+/**
+ * An independent HTTP method/path router with explicit registration ownership.
+ * Mutations invalidate only the live compiled generation; snapshots stay stable.
+ * @example
+ * const router = new Router().add("GET", "/users/:id", "show").compile();
+ * router.find("GET", "/users/42"); // { data: "show", params: { id: "42" } }
+ */
 export declare class Router<T = unknown> {
   /**
    * Create a router with validated immutable configuration. Registration and request state are owned by this instance, never shared through a global cache.

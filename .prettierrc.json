@@ -1,0 +1,10 @@
+{
+  "overrides": [
+    {
+      "files": ["README.md", "benchmark/*.md"],
+      "options": {
+        "semi": true
+      }
+    }
+  ]
+}

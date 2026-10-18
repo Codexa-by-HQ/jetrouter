@@ -10,7 +10,11 @@ permissions:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -20,16 +24,23 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npm run test:memory
+      - run: npm run test:package
 
   portable:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: npm
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: "1.4.3"
       - uses: denoland/setup-deno@v2
         with:
           deno-version: "2.9.7"
-      - run: bun test/run.js
-      - run: deno run --no-config --no-lock test/run.js
+      - run: npm ci
+      - run: npm run test:security -- --runtime=bun --runtime=deno
+      - run: npm run test:package -- --runtime=bun --runtime=deno

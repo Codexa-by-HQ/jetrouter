@@ -1,0 +1,340 @@
+{
+  "generatedAt": "2026-10-18T04:31:54.368Z",
+  "reference": "rou3@0.9.2",
+  "comparisons": 651,
+  "differences": [
+    {
+      "patterns": [
+        "/files/*"
+      ],
+      "path": "/files//",
+      "jetrouter": {
+        "data": "route-0",
+        "params": {
+          "0": ""
+        }
+      },
+      "rou3": {
+        "data": "route-0",
+        "params": {}
+      }
+    },
+    {
+      "patterns": [
+        "/files/**"
+      ],
+      "path": "/files",
+      "jetrouter": {
+        "data": "route-0",
+        "params": {}
+      },
+      "rou3": {
+        "data": "route-0",
+        "params": {
+          "_": ""
+        }
+      }
+    },
+    {
+      "patterns": [
+        "/files/**"
+      ],
+      "path": "/files/",
+      "jetrouter": {
+        "data": "route-0",
+        "params": {}
+      },
+      "rou3": {
+        "data": "route-0",
+        "params": {
+          "_": ""
+        }
+      }
+    },
+    {
+      "patterns": [
+        "/a/:id?"
+      ],
+      "path": "/a//",
+      "jetrouter": null,
+      "rou3": {
+        "data": "route-0",
+        "params": {}
+      }
+    },
+    {
+      "patterns": [
+        "/a/:path*"
+      ],
+      "path": "/a//",
+      "jetrouter": null,
+      "rou3": {
+        "data": "route-0",
+        "params": {}
+      }
+    },
+    {
+      "patterns": [
+        "/users/:id",
+        "/users/new",
+        "/**"
+      ],
+      "path": "/files//",
+      "jetrouter": {
+        "data": "route-2",
+        "params": {
+          "_": "files/"
+        }
+      },
+      "rou3": {
+        "data": "route-2",
+        "params": {
+          "_": "files"
+        }
+      }
+    },
+    {
+      "patterns": [
+        "/users/:id",
+        "/users/new",
+        "/**"
+      ],
+      "path": "/a//",
+      "jetrouter": {
+        "data": "route-2",
+        "params": {
+          "_": "a/"
+        }
+      },
+      "rou3": {
+        "data": "route-2",
+        "params": {
+          "_": "a"
+        }
+      }
+    },
+    {
+      "patterns": [
+        "/users/:id",
+        "/users/new",
+        "/**"
+      ],
+      "path": "/tail//",
+      "jetrouter": {
+        "data": "route-2",
+        "params": {
+          "_": "tail/"
+        }
+      },
+      "rou3": {
+        "data": "route-2",
+        "params": {
+          "_": "tail"
+        }
+      }
+    },
+    {
+      "patterns": [
+        "/users/:id",
+        "/users/new",
+        "/**"
+      ],
+      "path": "/tail///",
+      "jetrouter": {
+        "data": "route-2",
+        "params": {
+          "_": "tail//"
+        }
+      },
+      "rou3": {
+        "data": "route-2",
+        "params": {
+          "_": "tail/"
+        }
+      }
+    },
+    {
+      "patterns": [
+        "/a/:id/end",
+        "/a/**"
+      ],
+      "path": "/a",
+      "jetrouter": {
+        "data": "route-1",
+        "params": {}
+      },
+      "rou3": {
+        "data": "route-1",
+        "params": {
+          "_": ""
+        }
+      }
+    },
+    {
+      "patterns": [
+        "/a/:id/end",
+        "/a/**"
+      ],
+      "path": "/a/",
+      "jetrouter": {
+        "data": "route-1",
+        "params": {}
+      },
+      "rou3": {
+        "data": "route-1",
+        "params": {
+          "_": ""
+        }
+      }
+    },
+    {
+      "patterns": [
+        "/a/*",
+        "/a/:id"
+      ],
+      "path": "/a//",
+      "jetrouter": {
+        "data": "route-0",
+        "params": {
+          "0": ""
+        }
+      },
+      "rou3": {
+        "data": "route-0",
+        "params": {}
+      }
+    },
+    {
+      "patterns": [
+        "/tail///"
+      ],
+      "path": "/tail",
+      "jetrouter": null,
+      "rou3": {
+        "data": "route-0",
+        "params": {}
+      }
+    },
+    {
+      "patterns": [
+        "/tail///"
+      ],
+      "path": "/tail/",
+      "jetrouter": null,
+      "rou3": {
+        "data": "route-0",
+        "params": {}
+      }
+    },
+    {
+      "patterns": [
+        "/tail///"
+      ],
+      "path": "/tail//",
+      "jetrouter": null,
+      "rou3": {
+        "data": "route-0",
+        "params": {}
+      }
+    },
+    {
+      "patterns": [
+        "/tail///"
+      ],
+      "path": "/tail///",
+      "jetrouter": {
+        "data": "route-0",
+        "params": {}
+      },
+      "rou3": null
+    }
+  ],
+  "differencesCount": 16,
+  "regexpDifferences": [
+    {
+      "pattern": "/files/*",
+      "path": "/files",
+      "jetrouter": {},
+      "rou3": null
+    },
+    {
+      "pattern": "/files/**",
+      "path": "/files",
+      "jetrouter": {},
+      "rou3": {
+        "_": ""
+      }
+    },
+    {
+      "pattern": "/files/**",
+      "path": "/files/a\nb",
+      "jetrouter": {
+        "_": "a\nb"
+      },
+      "rou3": null
+    },
+    {
+      "pattern": "/v/:a-b",
+      "path": "/v/value",
+      "jetrouter": {
+        "__router_61_2d_62": "value"
+      },
+      "rou3": {
+        "__rou3_esc_a_hb": "value"
+      }
+    },
+    {
+      "pattern": "/files/**:rest",
+      "path": "/files/",
+      "jetrouter": null,
+      "rou3": {
+        "rest": "/"
+      }
+    },
+    {
+      "pattern": "/files/**:rest",
+      "path": "/files/a\nb",
+      "jetrouter": {
+        "rest": "a\nb"
+      },
+      "rou3": null
+    }
+  ],
+  "note": "Broad grammar probe. Nonempty string payloads match Codexa's route keys. This records migration differences rather than claiming drop-in equivalence.",
+  "sourceSha256": "a8f2628cd983ff46de910af2090df3841fd44db7d54f794c4a08de1d8fed2c9f",
+  "integration": {
+    "existingHttpTests": 6,
+    "additionalContractTests": 12,
+    "passedWithBothEngines": true,
+    "denoTypeCheck": true
+  },
+  "coreReadOnly": {
+    "unchanged": true,
+    "before": {
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\deno.json": "40b85d26e58d7f1ed65f6b3b38f818743022dd50759f9a2e91645c8ab101a6e8",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\_internals\\constants.ts": "cdd9a10e1a20c1dea582b2654dfc67dfeb26c97178116841f39737718fbc3a4d",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\_internals\\helpers.ts": "637c94b610670d83729150b27b337ec2c4f0594ef5f94abe0740a218a6f522b0",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\_internals\\types.ts": "bf8a70e9a35ef396c3432134b8012f57838eb01d6a3748e49501d49ed14b412e",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\_registries\\http.ts": "240518970fe4c215b90e9d52d1605ab77022b3013f126020b0ac0af21b3bc5ff",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\_registries\\plugin.ts": "3de69109a3ddcd88a578c1ba86cb59e243c42da34c4fca8527764c23d250e00f",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\_registries\\router.ts": "6c3116096b894dd44f41a68ce5b1e842c16f7958dbd4829e0102cfa61cd778f9",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\mod.ts": "bdb14416497b6b658f9069610fb8af2b1bc4cd32f0de773c4db04b4eb74cc379",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\static.ts": "508fc33ec0b05a72b662893f568a77d13760518cca120bb42d47f93ecdb3dbd1",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\providers\\rou3.ts": "4e472138d60d82abfd13d22a02e8200ed04b4245091dd010e83dbef1b60ea131",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\tests\\smoke.test.ts": "6bdf432fb3ed16e69cad900a5d3783e9ec53a40bcd14ae17fbe646bf2099fde6"
+    },
+    "after": {
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\deno.json": "40b85d26e58d7f1ed65f6b3b38f818743022dd50759f9a2e91645c8ab101a6e8",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\_internals\\constants.ts": "cdd9a10e1a20c1dea582b2654dfc67dfeb26c97178116841f39737718fbc3a4d",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\_internals\\helpers.ts": "637c94b610670d83729150b27b337ec2c4f0594ef5f94abe0740a218a6f522b0",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\_internals\\types.ts": "bf8a70e9a35ef396c3432134b8012f57838eb01d6a3748e49501d49ed14b412e",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\_registries\\http.ts": "240518970fe4c215b90e9d52d1605ab77022b3013f126020b0ac0af21b3bc5ff",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\_registries\\plugin.ts": "3de69109a3ddcd88a578c1ba86cb59e243c42da34c4fca8527764c23d250e00f",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\_registries\\router.ts": "6c3116096b894dd44f41a68ce5b1e842c16f7958dbd4829e0102cfa61cd778f9",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\mod.ts": "bdb14416497b6b658f9069610fb8af2b1bc4cd32f0de773c4db04b4eb74cc379",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\lib\\http\\static.ts": "508fc33ec0b05a72b662893f568a77d13760518cca120bb42d47f93ecdb3dbd1",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\src\\providers\\rou3.ts": "4e472138d60d82abfd13d22a02e8200ed04b4245091dd010e83dbef1b60ea131",
+      "D:\\WORK\\codexa\\Codexa-Core\\codexa-core\\tests\\smoke.test.ts": "6bdf432fb3ed16e69cad900a5d3783e9ec53a40bcd14ae17fbe646bf2099fde6"
+    }
+  }
+}

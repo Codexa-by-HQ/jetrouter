@@ -1,12 +1,15 @@
-import { ANY_METHOD, HYBRID } from "./constants.js";
-import { compareEntries, matchSegments } from "./matcher.js";
 import {
+  ANY_METHOD,
+  HYBRID,
   SMALL_TABLE_LIMIT,
   EMPTY_PARAMS,
   createDictionary,
 } from "./constants.js";
+import { compareEntries, matchSegments } from "./matcher.js";
+
 import { buildChunk } from "./regex.js";
-import { buildGroup, lookupGroup, normalizeParams } from "./group.js";
+import { buildGroup } from "./group.js";
+import { lookupGroup, normalizeParams } from "./lookup.js";
 
 const MISS = undefined;
 
@@ -36,54 +39,25 @@ export function compile(records, options, generation) {
     }
   all.sort(compareEntries);
   for (let i = 0; i < all.length; i++) all[i].priority = i;
-  const any = all.filter(
-    /**
-     * Select only items satisfying this local compiler predicate. This callback contributes to compile.
-     * @internal
-     * @example
-     * // Equivalent local callback inside compile:
-     * (entry) => entry.method === "*"
-     */
-    (entry) => entry.method === ANY_METHOD,
-  );
-  const methods = new Set(
-    all.map(
-      /**
-       * Project each item into the metadata needed by the surrounding compiler step. This callback contributes to compile.
-       * @internal
-       * @example
-       * // Equivalent local callback inside compile:
-       * (entry) => entry.method
-       */
-      (entry) => entry.method,
-    ),
-  );
+  // Partition once in global priority order; most applications have no wildcard method.
+  const byMethod = new Map();
+  let staticVariants = 0;
+  for (const entry of all) {
+    let own = byMethod.get(entry.method);
+    if (!own) byMethod.set(entry.method, (own = []));
+    own.push(entry);
+    if (entry.variant.staticPath !== null) staticVariants++;
+  }
+  const any = byMethod.get(ANY_METHOD) ?? [];
+  const methods = new Set(byMethod.keys());
   methods.add(ANY_METHOD);
   const tables = createDictionary();
   const stats = {
     generation,
     routes: records.length,
     variants: all.length,
-    staticVariants: all.filter(
-      /**
-       * Select only items satisfying this local compiler predicate. This callback contributes to compile.
-       * @internal
-       * @example
-       * // Equivalent local callback inside compile:
-       * (e) => e.variant.staticPath !== null
-       */
-      (e) => e.variant.staticPath !== null,
-    ).length,
-    dynamicVariants: all.filter(
-      /**
-       * Select only items satisfying this local compiler predicate. This callback contributes to compile.
-       * @internal
-       * @example
-       * // Equivalent local callback inside compile:
-       * (e) => e.variant.staticPath === null
-       */
-      (e) => e.variant.staticPath === null,
-    ).length,
+    staticVariants,
+    dynamicVariants: all.length - staticVariants,
     regexGroups: 0,
     directMatchers: 0,
     tailIndexes: 0,
@@ -91,52 +65,37 @@ export function compile(records, options, generation) {
     methods: methods.size - 1,
   };
   for (const method of methods) {
-    const own =
-      method === ANY_METHOD
-        ? any
-        : all.filter(
-            /**
-             * Select only items satisfying this local compiler predicate. This callback contributes to compile.
-             * @internal
-             * @example
-             * // Equivalent local callback inside compile:
-             * (e) => e.method === method
-             */
-            (e) => e.method === method,
-          );
+    const own = byMethod.get(method) ?? [];
     const ownShapes = new Set(
       own.map(
         /**
-         * Project each item into the metadata needed by the surrounding compiler step. This callback contributes to compile.
+         * Read structural keys used when method-specific definitions shadow fallbacks.
          * @internal
          * @example
-         * // Equivalent local callback inside compile:
          * (e) => e.variant.shape
          */
         (e) => e.variant.shape,
       ),
     );
     const entries =
-      method === ANY_METHOD
+      method === ANY_METHOD || any.length === 0
         ? own
         : [
             ...own,
             ...any.filter(
               /**
-               * Select only items satisfying this local compiler predicate. This callback contributes to compile.
+               * Keep fallback entries whose structural shape is not overridden for this method.
                * @internal
                * @example
-               * // Equivalent local callback inside compile:
                * (e) => !ownShapes.has(e.variant.shape)
                */
               (e) => !ownShapes.has(e.variant.shape),
             ),
           ].sort(
             /**
-             * Order entries by their precomputed priority. This callback contributes to compile.
+             * Restore global specificity order after merging method-specific and fallback routes.
              * @internal
              * @example
-             * // Equivalent local callback inside compile:
              * (a, b) => a.priority - b.priority
              */
             (a, b) => a.priority - b.priority,
@@ -162,10 +121,9 @@ export function compile(records, options, generation) {
     const groups = createDictionary();
     const dynamics = entries.filter(
       /**
-       * Select only items satisfying this local compiler predicate. This callback contributes to compile.
+       * Select dynamic variants for compilation and diagnostic counts.
        * @internal
        * @example
-       * // Equivalent local callback inside compile:
        * (entry) => entry.variant.staticPath === null
        */
       (entry) => entry.variant.staticPath === null,
@@ -176,10 +134,9 @@ export function compile(records, options, generation) {
       dynamics.length <= Math.min(SMALL_TABLE_LIMIT, options.maxGroupSize) &&
       dynamics.every(
         /**
-         * Require every item to satisfy the compilation safety rule. This callback contributes to compile.
+         * Combine only variants whose regex syntax is entirely compiler-owned.
          * @internal
          * @example
-         * // Equivalent local callback inside compile:
          * (entry) => entry.variant.safe
          */
         (entry) => entry.variant.safe,
@@ -260,12 +217,13 @@ export function compile(records, options, generation) {
         return shallowGroup.fast(path, wantParams);
       if (!deepGroup && !shallowGroup && globalGroup?.fast)
         return globalGroup.fast(path, wantParams);
-      let selected = lookupGroup(deepGroup, path, Infinity);
+      let selected = lookupGroup(deepGroup, path, Infinity, wantParams);
       if (deepBucket !== bucket) {
         const shallow = lookupGroup(
           table.groups[bucket],
           path,
           selected?.entry.priority ?? Infinity,
+          wantParams,
         );
         if (shallow) selected = shallow;
       }
@@ -274,6 +232,7 @@ export function compile(records, options, generation) {
           table.groups[""],
           path,
           selected?.entry.priority ?? Infinity,
+          wantParams,
         );
         if (global) selected = global;
       }
@@ -310,7 +269,7 @@ export function compile(records, options, generation) {
         seen = new Set();
       for (const entry of table.entries) {
         if (seen.has(entry.id)) continue;
-        const params = matchSegments(entry.variant.segments, path);
+        const params = matchSegments(entry.variant.segments, path, wantParams);
         if (params === undefined) continue;
         seen.add(entry.id);
         matches.push(

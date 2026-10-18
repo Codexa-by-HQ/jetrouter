@@ -1,8 +1,9 @@
 import { LITERAL } from "./constants.js";
 import { normalizeMethod, resolveOptions } from "./options.js";
-import { parsePattern, normalizePath } from "./pattern.js";
+import { parsePattern } from "./pattern.js";
+import { normalizePath } from "./path.js";
 import { compile } from "./compiler.js";
-import { patternRegExp } from "./regex.js";
+import { patternRegExp } from "./regexp.js";
 
 /**
  * Bind method/path normalization to one immutable compiled generation. The returned function captures the generation, not the mutable Router instance.
@@ -29,7 +30,13 @@ function bindSnapshot(snapshot, options) {
   return compiledFind;
 }
 
-/** Independent mutable registration table with an immutable compiled matching snapshot. */
+/**
+ * An independent HTTP method/path router with explicit registration ownership.
+ * Mutations invalidate only the live compiled generation; snapshots stay stable.
+ * @example
+ * const router = new Router().add("GET", "/users/:id", "show").compile();
+ * router.find("GET", "/users/42"); // { data: "show", params: { id: "42" } }
+ */
 export class Router {
   #options;
   #records = new Map();

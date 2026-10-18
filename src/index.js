@@ -2,7 +2,7 @@
 import { Router } from "./router.js";
 import { resolveOptions } from "./options.js";
 import { parsePattern } from "./pattern.js";
-import { patternRegExp } from "./regex.js";
+import { patternRegExp } from "./regexp.js";
 export { Router };
 
 /**

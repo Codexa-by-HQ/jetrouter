@@ -1,13 +1,11 @@
 # Benchmark evidence
 
-The earlier faster-than claims are withdrawn. Correct responses were recorded, but the short, variable local measurements do not establish that JetRouter beats Hono or native Bun.
+The current source-only JetRouter 0.2.0 measurements and validation are complete. See [results.md](results.md) for methodology, all HTTP stacks, repeated controls, matcher results, and limitations.
 
-- [Audit and all 144 measured samples](audit.md): exact completed counts, durations, request rates, CPU observations, and limitations.
-- [Complete audit data](audit.json): all 64 concrete deep paths, 1,004 registered definitions, expected responses, and sample details.
-- [Original baseline tables](results.md): exploratory observations, with interpretation correction.
-- [Complete baseline data](results.json): original summary plus all raw autocannon results, including latency and throughput histograms.
-- verification.json records final-source correctness, portability, documentation, and bounded-memory checks after cleanup.
+- [results.json](results.json): all 117 measured HTTP samples, exact requests and responses, per-path and per-second counts, latency histograms, and counter audit.
+- [matcher.json](matcher.json): 84 matcher cases under Node, Bun, and Deno, with full route/path fixtures and A/A controls.
+- [optimization.json](optimization.json): comparison with the actual published jetrouter@0.1.1 package.
+- [compatibility.json](compatibility.json): Codexa integration checks and documented Rou3 behavior differences.
+- [verification.json](verification.json): source, installed tarball, runtime, security, and memory checks.
 
-The HTTP baseline used the pre-cleanup source hash recorded in its summary. It is not a final-source HTTP benchmark. The original harness, runtime tools, and full historical results are retained in the sibling benchmarks project. Run that harness from its own directory; do not install framework dependencies into JetRouter.
-
-No final-source HTTP speed claim is made. A reliable comparison requires the follow-up protocol in the audit.
+Benchmark tools and third-party development dependencies stay in the sibling benchmarks project. This directory is excluded from npm publication. JetRouter publishes source directly and has no build step.

@@ -43,6 +43,7 @@ export function createLinearMatcher(entry, decode) {
     return matchParameter;
   }
 
+  const terminalSuffix = captures.at(-1).suffix;
   /**
    * Validate a precomputed sequence of literal boundaries and nonempty parameter spans. Decoding happens only after the entire pathname matches, and params:false avoids map allocation.
    * @internal
@@ -52,7 +53,11 @@ export function createLinearMatcher(entry, decode) {
    * // { data, params: { id: "42", post: "7" } }
    */
   function matchLinear(path, wantParams) {
-    if (!path.startsWith(prefix)) return;
+    if (
+      !path.startsWith(prefix) ||
+      (terminalSuffix && !path.endsWith(terminalSuffix))
+    )
+      return;
     let cursor = prefix.length;
     const params = wantParams ? createDictionary() : undefined;
     for (const capture of captures) {

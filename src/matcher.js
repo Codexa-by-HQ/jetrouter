@@ -1,4 +1,7 @@
+import { matchCapturePlan } from "./captures.js";
 import {
+  EMPTY_PARAMS,
+  MAX_NATIVE_CAPTURE_LENGTH,
   LITERAL,
   CATCH_ALL,
   SEGMENT_PRIORITIES,
@@ -54,15 +57,15 @@ export function compareEntries(a, b) {
  * matchSegments(userVariant.segments, "/users/42");
  * // A null-prototype map containing { id: "42" }
  */
-export function matchSegments(segments, path) {
+export function matchSegments(segments, path, wantParams = true) {
   let cursor = 1;
-  const params = Object.create(null);
+  const params = wantParams ? Object.create(null) : EMPTY_PARAMS;
   for (let i = 0; i < segments.length; i++) {
     const segment = segments[i];
     if (segment.kind === CATCH_ALL) {
       const rest = path.slice(cursor);
       if (segment.min && !rest) return;
-      if (cursor <= path.length) params[segment.name] = rest;
+      if (wantParams && cursor <= path.length) params[segment.name] = rest;
       return params;
     }
     if (cursor > path.length) return;
@@ -76,6 +79,19 @@ export function matchSegments(segments, path) {
           : value !== segment.value
       )
         return;
+    } else if (
+      segment.plan &&
+      !(
+        segment.captures.length === 2 &&
+        value.length <= MAX_NATIVE_CAPTURE_LENGTH
+      )
+    ) {
+      if (
+        !matchCapturePlan(segment.plan, value, wantParams ? params : undefined)
+      )
+        return;
+    } else if (!wantParams) {
+      if (!segment.regexp.test(value)) return;
     } else {
       const result = segment.regexp.exec(value);
       if (!result) return;

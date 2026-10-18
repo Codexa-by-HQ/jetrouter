@@ -7,6 +7,8 @@ export const HYBRID = "hybrid";
 export const SEGMENT = "segment";
 export const IGNORE_TRAILING_SLASH = "ignore";
 export const MAX_GROUP_SIZE = 256;
+// Two unconstrained captures have bounded native work below this segment length.
+export const MAX_NATIVE_CAPTURE_LENGTH = 64;
 export const SMALL_TABLE_LIMIT = 24;
 export const SEGMENT_PRIORITIES = Object.freeze([3, 2, 1]);
 export const END_OF_PATH_PRIORITY = 4;
@@ -18,6 +20,7 @@ export const DEFAULT_OPTIONS = Object.freeze({
   trailingSlash: IGNORE_TRAILING_SLASH,
   caseSensitive: true,
   decodeParams: false,
+  allowCustomRegex: true,
   maxExpansions: 128,
   maxGroupSize: 64,
   strategy: HYBRID,

@@ -3,8 +3,9 @@ import {
   HYBRID,
   SEGMENT,
   IGNORE_TRAILING_SLASH,
+  DEFAULT_OPTIONS,
+  MAX_GROUP_SIZE,
 } from "./constants.js";
-import { DEFAULT_OPTIONS, MAX_GROUP_SIZE } from "./constants.js";
 
 /**
  * Normalize an HTTP method while keeping common uppercase methods on a cheap path. Missing or wildcard methods select method-independent registrations.
@@ -43,6 +44,8 @@ export function resolveOptions(options = {}) {
     throw new TypeError("trailingSlash must be ignore or strict");
   if (typeof result.caseSensitive !== "boolean")
     throw new TypeError("caseSensitive must be boolean");
+  if (typeof result.allowCustomRegex !== "boolean")
+    throw new TypeError("allowCustomRegex must be boolean");
   if (result.decodeParams === true) result.decodeParams = decodeURIComponent;
   if (
     result.decodeParams !== false &&

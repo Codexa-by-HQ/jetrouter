@@ -1,0 +1,4999 @@
+{
+  "generatedAt": "2026-10-18T04:31:55.016Z",
+  "sourceSha256": "a8f2628cd983ff46de910af2090df3841fd44db7d54f794c4a08de1d8fed2c9f",
+  "reference": "Published jetrouter@0.1.1",
+  "reports": [
+    {
+      "date": "2026-10-18T03:50:21.975Z",
+      "runtime": "node-24.21.0",
+      "cpu": "Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz",
+      "sourceSha256": "a8f2628cd983ff46de910af2090df3841fd44db7d54f794c4a08de1d8fed2c9f",
+      "rounds": 8,
+      "targetMilliseconds": 100,
+      "pathsPerCase": 1024,
+      "mode": "equivalent public matching outputs; all params consumed; no HTTP",
+      "rows": [
+        {
+          "name": "static",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 65.68127571264539,
+            "updated-source": 73.02881556348171,
+            "source-control": 73.04429724822948
+          },
+          "sourceVersusPublished": 0.8993884839272884,
+          "controlRatio": 1.0002119941919956,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 1559787,
+                "elapsedMs": 102.4488,
+                "nanosecondsPerOperation": 65.68127571264539
+              },
+              {
+                "round": 1,
+                "operations": 1559787,
+                "elapsedMs": 101.82290000000012,
+                "nanosecondsPerOperation": 65.28000297476522
+              },
+              {
+                "round": 2,
+                "operations": 1559787,
+                "elapsedMs": 102.00819999999999,
+                "nanosecondsPerOperation": 65.39880124658045
+              },
+              {
+                "round": 3,
+                "operations": 1559787,
+                "elapsedMs": 111.91290000000004,
+                "nanosecondsPerOperation": 71.74883493707797
+              },
+              {
+                "round": 4,
+                "operations": 1559787,
+                "elapsedMs": 107.85239999999976,
+                "nanosecondsPerOperation": 69.14559487930067
+              },
+              {
+                "round": 5,
+                "operations": 1559787,
+                "elapsedMs": 102.08130000000028,
+                "nanosecondsPerOperation": 65.44566661986559
+              },
+              {
+                "round": 6,
+                "operations": 1559787,
+                "elapsedMs": 102.30099999999993,
+                "nanosecondsPerOperation": 65.58651918499123
+              },
+              {
+                "round": 7,
+                "operations": 1559787,
+                "elapsedMs": 110.7820999999999,
+                "nanosecondsPerOperation": 71.02386415581095
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 1442762,
+                "elapsedMs": 106.15649999999994,
+                "nanosecondsPerOperation": 73.57866370198268
+              },
+              {
+                "round": 1,
+                "operations": 1442762,
+                "elapsedMs": 104.07080000000008,
+                "nanosecondsPerOperation": 72.13303372281781
+              },
+              {
+                "round": 2,
+                "operations": 1442762,
+                "elapsedMs": 105.13660000000004,
+                "nanosecondsPerOperation": 72.87175570191067
+              },
+              {
+                "round": 3,
+                "operations": 1442762,
+                "elapsedMs": 105.3632,
+                "nanosecondsPerOperation": 73.02881556348171
+              },
+              {
+                "round": 4,
+                "operations": 1442762,
+                "elapsedMs": 109.74080000000004,
+                "nanosecondsPerOperation": 76.06299583715126
+              },
+              {
+                "round": 5,
+                "operations": 1442762,
+                "elapsedMs": 104.15250000000015,
+                "nanosecondsPerOperation": 72.18966121924485
+              },
+              {
+                "round": 6,
+                "operations": 1442762,
+                "elapsedMs": 122.95969999999988,
+                "nanosecondsPerOperation": 85.22521386063667
+              },
+              {
+                "round": 7,
+                "operations": 1442762,
+                "elapsedMs": 103.96259999999984,
+                "nanosecondsPerOperation": 72.05803867858998
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 1452483,
+                "elapsedMs": 104.94889999999998,
+                "nanosecondsPerOperation": 72.25482157106141
+              },
+              {
+                "round": 1,
+                "operations": 1452483,
+                "elapsedMs": 112.3315,
+                "nanosecondsPerOperation": 77.33756608511081
+              },
+              {
+                "round": 2,
+                "operations": 1452483,
+                "elapsedMs": 105.3273999999999,
+                "nanosecondsPerOperation": 72.51540981891003
+              },
+              {
+                "round": 3,
+                "operations": 1452483,
+                "elapsedMs": 122.54780000000005,
+                "nanosecondsPerOperation": 84.37124565313331
+              },
+              {
+                "round": 4,
+                "operations": 1452483,
+                "elapsedMs": 106.0956000000001,
+                "nanosecondsPerOperation": 73.04429724822948
+              },
+              {
+                "round": 5,
+                "operations": 1452483,
+                "elapsedMs": 103.8744999999999,
+                "nanosecondsPerOperation": 71.51512272432785
+              },
+              {
+                "round": 6,
+                "operations": 1452483,
+                "elapsedMs": 115.77610000000004,
+                "nanosecondsPerOperation": 79.70909125958792
+              },
+              {
+                "round": 7,
+                "operations": 1452483,
+                "elapsedMs": 104.60820000000012,
+                "nanosecondsPerOperation": 72.02025772418688
+              }
+            ]
+          }
+        },
+        {
+          "name": "single-small",
+          "registrations": 1,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 473.65159020138236,
+            "updated-source": 443.9780251916537,
+            "source-control": 452.194748691584
+          },
+          "sourceVersusPublished": 1.0668356615103176,
+          "controlRatio": 1.0185070499747895,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 200069,
+                "elapsedMs": 94.76300000000037,
+                "nanosecondsPerOperation": 473.65159020138236
+              },
+              {
+                "round": 1,
+                "operations": 200069,
+                "elapsedMs": 94.04070000000047,
+                "nanosecondsPerOperation": 470.0413357391724
+              },
+              {
+                "round": 2,
+                "operations": 200069,
+                "elapsedMs": 91.97730000000047,
+                "nanosecondsPerOperation": 459.72789387661487
+              },
+              {
+                "round": 3,
+                "operations": 200069,
+                "elapsedMs": 99.54179999999997,
+                "nanosecondsPerOperation": 497.5373496143829
+              },
+              {
+                "round": 4,
+                "operations": 200069,
+                "elapsedMs": 91.57220000000052,
+                "nanosecondsPerOperation": 457.70309243311317
+              },
+              {
+                "round": 5,
+                "operations": 200069,
+                "elapsedMs": 96.31980000000021,
+                "nanosecondsPerOperation": 481.4329056475526
+              },
+              {
+                "round": 6,
+                "operations": 200069,
+                "elapsedMs": 92.84279999999944,
+                "nanosecondsPerOperation": 464.05390140401283
+              },
+              {
+                "round": 7,
+                "operations": 200069,
+                "elapsedMs": 95.05540000000019,
+                "nanosecondsPerOperation": 475.113085985336
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 239365,
+                "elapsedMs": 106.27280000000019,
+                "nanosecondsPerOperation": 443.9780251916537
+              },
+              {
+                "round": 1,
+                "operations": 239365,
+                "elapsedMs": 106.14480000000003,
+                "nanosecondsPerOperation": 443.4432770037392
+              },
+              {
+                "round": 2,
+                "operations": 239365,
+                "elapsedMs": 106.33070000000043,
+                "nanosecondsPerOperation": 444.2199151922814
+              },
+              {
+                "round": 3,
+                "operations": 239365,
+                "elapsedMs": 106.20669999999973,
+                "nanosecondsPerOperation": 443.7018778852369
+              },
+              {
+                "round": 4,
+                "operations": 239365,
+                "elapsedMs": 107.15549999999985,
+                "nanosecondsPerOperation": 447.66569882814883
+              },
+              {
+                "round": 5,
+                "operations": 239365,
+                "elapsedMs": 105.69080000000031,
+                "nanosecondsPerOperation": 441.5465920247334
+              },
+              {
+                "round": 6,
+                "operations": 239365,
+                "elapsedMs": 109.94740000000002,
+                "nanosecondsPerOperation": 459.32947590499873
+              },
+              {
+                "round": 7,
+                "operations": 239365,
+                "elapsedMs": 106.0027,
+                "nanosecondsPerOperation": 442.8496229607503
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 203873,
+                "elapsedMs": 90.62509999999975,
+                "nanosecondsPerOperation": 444.5174201586269
+              },
+              {
+                "round": 1,
+                "operations": 203873,
+                "elapsedMs": 94.08410000000049,
+                "nanosecondsPerOperation": 461.48386495514603
+              },
+              {
+                "round": 2,
+                "operations": 203873,
+                "elapsedMs": 91.61529999999948,
+                "nanosecondsPerOperation": 449.3743654137599
+              },
+              {
+                "round": 3,
+                "operations": 203873,
+                "elapsedMs": 92.28980000000047,
+                "nanosecondsPerOperation": 452.6827976240133
+              },
+              {
+                "round": 4,
+                "operations": 203873,
+                "elapsedMs": 90.29199999999946,
+                "nanosecondsPerOperation": 442.8835598632456
+              },
+              {
+                "round": 5,
+                "operations": 203873,
+                "elapsedMs": 92.1902999999993,
+                "nanosecondsPerOperation": 452.194748691584
+              },
+              {
+                "round": 6,
+                "operations": 203873,
+                "elapsedMs": 90.29809999999998,
+                "nanosecondsPerOperation": 442.91348045106497
+              },
+              {
+                "round": 7,
+                "operations": 203873,
+                "elapsedMs": 92.21720000000005,
+                "nanosecondsPerOperation": 452.3266935788459
+              }
+            ]
+          }
+        },
+        {
+          "name": "single-large",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 813.9052258777922,
+            "updated-source": 871.9004844324328,
+            "source-control": 865.0178959660477
+          },
+          "sourceVersusPublished": 0.9334840849499093,
+          "controlRatio": 0.9921062224539704,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 124802,
+                "elapsedMs": 100.79070000000047,
+                "nanosecondsPerOperation": 807.6048460761886
+              },
+              {
+                "round": 1,
+                "operations": 124802,
+                "elapsedMs": 103.64890000000014,
+                "nanosecondsPerOperation": 830.5067226486766
+              },
+              {
+                "round": 2,
+                "operations": 124802,
+                "elapsedMs": 98.35059999999976,
+                "nanosecondsPerOperation": 788.0530760724969
+              },
+              {
+                "round": 3,
+                "operations": 124802,
+                "elapsedMs": 101.86509999999998,
+                "nanosecondsPerOperation": 816.2136824730371
+              },
+              {
+                "round": 4,
+                "operations": 124802,
+                "elapsedMs": 101.57700000000023,
+                "nanosecondsPerOperation": 813.9052258777922
+              },
+              {
+                "round": 5,
+                "operations": 124802,
+                "elapsedMs": 101.1155000000008,
+                "nanosecondsPerOperation": 810.2073684716654
+              },
+              {
+                "round": 6,
+                "operations": 124802,
+                "elapsedMs": 101.67339999999967,
+                "nanosecondsPerOperation": 814.6776493966416
+              },
+              {
+                "round": 7,
+                "operations": 124802,
+                "elapsedMs": 97.68949999999859,
+                "nanosecondsPerOperation": 782.7558853223393
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 123237,
+                "elapsedMs": 104.72810000000027,
+                "nanosecondsPerOperation": 849.8105276824352
+              },
+              {
+                "round": 1,
+                "operations": 123237,
+                "elapsedMs": 110.4975000000004,
+                "nanosecondsPerOperation": 896.626013291466
+              },
+              {
+                "round": 2,
+                "operations": 123237,
+                "elapsedMs": 110.56909999999971,
+                "nanosecondsPerOperation": 897.2070076356914
+              },
+              {
+                "round": 3,
+                "operations": 123237,
+                "elapsedMs": 106.19180000000051,
+                "nanosecondsPerOperation": 861.6876425099646
+              },
+              {
+                "round": 4,
+                "operations": 123237,
+                "elapsedMs": 105.4364999999998,
+                "nanosecondsPerOperation": 855.5588013340133
+              },
+              {
+                "round": 5,
+                "operations": 123237,
+                "elapsedMs": 107.45039999999972,
+                "nanosecondsPerOperation": 871.9004844324328
+              },
+              {
+                "round": 6,
+                "operations": 123237,
+                "elapsedMs": 111.96229999999923,
+                "nanosecondsPerOperation": 908.5120540097473
+              },
+              {
+                "round": 7,
+                "operations": 123237,
+                "elapsedMs": 106.59699999999975,
+                "nanosecondsPerOperation": 864.9756160893218
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 105331,
+                "elapsedMs": 90.73610000000008,
+                "nanosecondsPerOperation": 861.4377533679551
+              },
+              {
+                "round": 1,
+                "operations": 105331,
+                "elapsedMs": 91.11319999999978,
+                "nanosecondsPerOperation": 865.0178959660477
+              },
+              {
+                "round": 2,
+                "operations": 105331,
+                "elapsedMs": 91.56960000000072,
+                "nanosecondsPerOperation": 869.3509033428023
+              },
+              {
+                "round": 3,
+                "operations": 105331,
+                "elapsedMs": 90.6918999999998,
+                "nanosecondsPerOperation": 861.0181238191967
+              },
+              {
+                "round": 4,
+                "operations": 105331,
+                "elapsedMs": 90.61090000000058,
+                "nanosecondsPerOperation": 860.2491194425248
+              },
+              {
+                "round": 5,
+                "operations": 105331,
+                "elapsedMs": 113.40630000000056,
+                "nanosecondsPerOperation": 1076.665938802447
+              },
+              {
+                "round": 6,
+                "operations": 105331,
+                "elapsedMs": 90.3805999999986,
+                "nanosecondsPerOperation": 858.0626786036266
+              },
+              {
+                "round": 7,
+                "operations": 105331,
+                "elapsedMs": 91.69400000000132,
+                "nanosecondsPerOperation": 870.5319421632884
+              }
+            ]
+          }
+        },
+        {
+          "name": "deep",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 1185.8568119377278,
+            "updated-source": 1166.19544914248,
+            "source-control": 1151.0117026700989
+          },
+          "sourceVersusPublished": 1.0168594062082006,
+          "controlRatio": 0.9869801014199242,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 92815,
+                "elapsedMs": 116.29199999999946,
+                "nanosecondsPerOperation": 1252.9440284436726
+              },
+              {
+                "round": 1,
+                "operations": 92815,
+                "elapsedMs": 108.53000000000065,
+                "nanosecondsPerOperation": 1169.315304638266
+              },
+              {
+                "round": 2,
+                "operations": 92815,
+                "elapsedMs": 107.29429999999957,
+                "nanosecondsPerOperation": 1156.0017238592852
+              },
+              {
+                "round": 3,
+                "operations": 92815,
+                "elapsedMs": 117.32910000000084,
+                "nanosecondsPerOperation": 1264.1178688789616
+              },
+              {
+                "round": 4,
+                "operations": 92815,
+                "elapsedMs": 111.90689999999995,
+                "nanosecondsPerOperation": 1205.6984323654576
+              },
+              {
+                "round": 5,
+                "operations": 92815,
+                "elapsedMs": 105.72099999999955,
+                "nanosecondsPerOperation": 1139.050799978447
+              },
+              {
+                "round": 6,
+                "operations": 92815,
+                "elapsedMs": 106.18039999999928,
+                "nanosecondsPerOperation": 1144.0004309648148
+              },
+              {
+                "round": 7,
+                "operations": 92815,
+                "elapsedMs": 110.0653000000002,
+                "nanosecondsPerOperation": 1185.8568119377278
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 94224,
+                "elapsedMs": 108.08989999999903,
+                "nanosecondsPerOperation": 1147.1588979453115
+              },
+              {
+                "round": 1,
+                "operations": 94224,
+                "elapsedMs": 109.88360000000102,
+                "nanosecondsPerOperation": 1166.19544914248
+              },
+              {
+                "round": 2,
+                "operations": 94224,
+                "elapsedMs": 107.29680000000008,
+                "nanosecondsPerOperation": 1138.7417218543055
+              },
+              {
+                "round": 3,
+                "operations": 94224,
+                "elapsedMs": 110.19880000000012,
+                "nanosecondsPerOperation": 1169.5406690439816
+              },
+              {
+                "round": 4,
+                "operations": 94224,
+                "elapsedMs": 107.01450000000114,
+                "nanosecondsPerOperation": 1135.745669893033
+              },
+              {
+                "round": 5,
+                "operations": 94224,
+                "elapsedMs": 107.36129999999866,
+                "nanosecondsPerOperation": 1139.4262608252532
+              },
+              {
+                "round": 6,
+                "operations": 94224,
+                "elapsedMs": 118.6952999999994,
+                "nanosecondsPerOperation": 1259.7140855832845
+              },
+              {
+                "round": 7,
+                "operations": 94224,
+                "elapsedMs": 116.95539999999892,
+                "nanosecondsPerOperation": 1241.2485141789662
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 80409,
+                "elapsedMs": 118.15270000000055,
+                "nanosecondsPerOperation": 1469.396460595214
+              },
+              {
+                "round": 1,
+                "operations": 80409,
+                "elapsedMs": 95.99759999999878,
+                "nanosecondsPerOperation": 1193.866358243465
+              },
+              {
+                "round": 2,
+                "operations": 80409,
+                "elapsedMs": 90.97130000000107,
+                "nanosecondsPerOperation": 1131.3571863846219
+              },
+              {
+                "round": 3,
+                "operations": 80409,
+                "elapsedMs": 91.47969999999987,
+                "nanosecondsPerOperation": 1137.6798617070212
+              },
+              {
+                "round": 4,
+                "operations": 80409,
+                "elapsedMs": 91.92110000000139,
+                "nanosecondsPerOperation": 1143.169296969262
+              },
+              {
+                "round": 5,
+                "operations": 80409,
+                "elapsedMs": 91.49259999999958,
+                "nanosecondsPerOperation": 1137.8402915096517
+              },
+              {
+                "round": 6,
+                "operations": 80409,
+                "elapsedMs": 93.29589999999916,
+                "nanosecondsPerOperation": 1160.2668855476272
+              },
+              {
+                "round": 7,
+                "operations": 80409,
+                "elapsedMs": 92.55169999999998,
+                "nanosecondsPerOperation": 1151.0117026700989
+              }
+            ]
+          }
+        },
+        {
+          "name": "deep-no-params",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 631.0261397884327,
+            "updated-source": 618.3354426995152,
+            "source-control": 645.2684843145072
+          },
+          "sourceVersusPublished": 1.0205239684038048,
+          "controlRatio": 1.0435573311104542,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 166566,
+                "elapsedMs": 105.10750000000007,
+                "nanosecondsPerOperation": 631.0261397884327
+              },
+              {
+                "round": 1,
+                "operations": 166566,
+                "elapsedMs": 102.51959999999963,
+                "nanosecondsPerOperation": 615.4893555707625
+              },
+              {
+                "round": 2,
+                "operations": 166566,
+                "elapsedMs": 109.25169999999889,
+                "nanosecondsPerOperation": 655.9063674459308
+              },
+              {
+                "round": 3,
+                "operations": 166566,
+                "elapsedMs": 113.37149999999929,
+                "nanosecondsPerOperation": 680.6401066243968
+              },
+              {
+                "round": 4,
+                "operations": 166566,
+                "elapsedMs": 104.1278000000002,
+                "nanosecondsPerOperation": 625.1443872098761
+              },
+              {
+                "round": 5,
+                "operations": 166566,
+                "elapsedMs": 104.44870000000083,
+                "nanosecondsPerOperation": 627.0709508543209
+              },
+              {
+                "round": 6,
+                "operations": 166566,
+                "elapsedMs": 101.47719999999936,
+                "nanosecondsPerOperation": 609.2311756300767
+              },
+              {
+                "round": 7,
+                "operations": 166566,
+                "elapsedMs": 106.28600000000006,
+                "nanosecondsPerOperation": 638.1014132536055
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 168297,
+                "elapsedMs": 106.02809999999954,
+                "nanosecondsPerOperation": 630.0058824577951
+              },
+              {
+                "round": 1,
+                "operations": 168297,
+                "elapsedMs": 102.22710000000006,
+                "nanosecondsPerOperation": 607.4208096401009
+              },
+              {
+                "round": 2,
+                "operations": 168297,
+                "elapsedMs": 100.8880999999983,
+                "nanosecondsPerOperation": 599.4646369216225
+              },
+              {
+                "round": 3,
+                "operations": 168297,
+                "elapsedMs": 104.03650000000016,
+                "nanosecondsPerOperation": 618.1720410940193
+              },
+              {
+                "round": 4,
+                "operations": 168297,
+                "elapsedMs": 104.0640000000003,
+                "nanosecondsPerOperation": 618.3354426995152
+              },
+              {
+                "round": 5,
+                "operations": 168297,
+                "elapsedMs": 110.19670000000042,
+                "nanosecondsPerOperation": 654.7751891002241
+              },
+              {
+                "round": 6,
+                "operations": 168297,
+                "elapsedMs": 108.47409999999945,
+                "nanosecondsPerOperation": 644.5397125320086
+              },
+              {
+                "round": 7,
+                "operations": 168297,
+                "elapsedMs": 102.85859999999957,
+                "nanosecondsPerOperation": 611.1731046899206
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 123713,
+                "elapsedMs": 79.82810000000063,
+                "nanosecondsPerOperation": 645.2684843145072
+              },
+              {
+                "round": 1,
+                "operations": 123713,
+                "elapsedMs": 84.06209999999919,
+                "nanosecondsPerOperation": 679.492858470809
+              },
+              {
+                "round": 2,
+                "operations": 123713,
+                "elapsedMs": 85.09110000000146,
+                "nanosecondsPerOperation": 687.8104968758454
+              },
+              {
+                "round": 3,
+                "operations": 123713,
+                "elapsedMs": 77.69549999999981,
+                "nanosecondsPerOperation": 628.0301989281628
+              },
+              {
+                "round": 4,
+                "operations": 123713,
+                "elapsedMs": 78.15230000000156,
+                "nanosecondsPerOperation": 631.7226160549139
+              },
+              {
+                "round": 5,
+                "operations": 123713,
+                "elapsedMs": 78.99439999999959,
+                "nanosecondsPerOperation": 638.5294997292086
+              },
+              {
+                "round": 6,
+                "operations": 123713,
+                "elapsedMs": 81.15500000000065,
+                "nanosecondsPerOperation": 655.9941154122902
+              },
+              {
+                "round": 7,
+                "operations": 123713,
+                "elapsedMs": 78.72609999999986,
+                "nanosecondsPerOperation": 636.3607704929948
+              }
+            ]
+          }
+        },
+        {
+          "name": "late-miss",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 756.9193510362461,
+            "updated-source": 472.0493986128515,
+            "source-control": 474.74782220237006
+          },
+          "sourceVersusPublished": 1.6034748762746098,
+          "controlRatio": 1.0057164008628081,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 139977,
+                "elapsedMs": 109.15620000000126,
+                "nanosecondsPerOperation": 779.8152553633902
+              },
+              {
+                "round": 1,
+                "operations": 139977,
+                "elapsedMs": 105.95130000000063,
+                "nanosecondsPerOperation": 756.9193510362461
+              },
+              {
+                "round": 2,
+                "operations": 139977,
+                "elapsedMs": 101.99330000000009,
+                "nanosecondsPerOperation": 728.6432771098115
+              },
+              {
+                "round": 3,
+                "operations": 139977,
+                "elapsedMs": 103.01759999999922,
+                "nanosecondsPerOperation": 735.9609078634292
+              },
+              {
+                "round": 4,
+                "operations": 139977,
+                "elapsedMs": 104.06049999999959,
+                "nanosecondsPerOperation": 743.4114175900298
+              },
+              {
+                "round": 5,
+                "operations": 139977,
+                "elapsedMs": 100.76429999999891,
+                "nanosecondsPerOperation": 719.8632632503834
+              },
+              {
+                "round": 6,
+                "operations": 139977,
+                "elapsedMs": 108.19710000000123,
+                "nanosecondsPerOperation": 772.963415418256
+              },
+              {
+                "round": 7,
+                "operations": 139977,
+                "elapsedMs": 106.6691000000028,
+                "nanosecondsPerOperation": 762.0473363481343
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 239197,
+                "elapsedMs": 111.94369999999981,
+                "nanosecondsPerOperation": 467.99792639539714
+              },
+              {
+                "round": 1,
+                "operations": 239197,
+                "elapsedMs": 115.41200000000026,
+                "nanosecondsPerOperation": 482.49769018842323
+              },
+              {
+                "round": 2,
+                "operations": 239197,
+                "elapsedMs": 115.40830000000096,
+                "nanosecondsPerOperation": 482.48222176699943
+              },
+              {
+                "round": 3,
+                "operations": 239197,
+                "elapsedMs": 112.64290000000256,
+                "nanosecondsPerOperation": 470.9210399796091
+              },
+              {
+                "round": 4,
+                "operations": 239197,
+                "elapsedMs": 110.35119999999733,
+                "nanosecondsPerOperation": 461.34023420025056
+              },
+              {
+                "round": 5,
+                "operations": 239197,
+                "elapsedMs": 112.91279999999824,
+                "nanosecondsPerOperation": 472.0493986128515
+              },
+              {
+                "round": 6,
+                "operations": 239197,
+                "elapsedMs": 114.98670000000129,
+                "nanosecondsPerOperation": 480.71965785524606
+              },
+              {
+                "round": 7,
+                "operations": 239197,
+                "elapsedMs": 110.89210000000094,
+                "nanosecondsPerOperation": 463.6015501866701
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 223850,
+                "elapsedMs": 106.27230000000054,
+                "nanosecondsPerOperation": 474.74782220237006
+              },
+              {
+                "round": 1,
+                "operations": 223850,
+                "elapsedMs": 102.98680000000058,
+                "nanosecondsPerOperation": 460.0705829796765
+              },
+              {
+                "round": 2,
+                "operations": 223850,
+                "elapsedMs": 104.0051999999996,
+                "nanosecondsPerOperation": 464.62005807460173
+              },
+              {
+                "round": 3,
+                "operations": 223850,
+                "elapsedMs": 106.99690000000192,
+                "nanosecondsPerOperation": 477.9848112575471
+              },
+              {
+                "round": 4,
+                "operations": 223850,
+                "elapsedMs": 109.03160000000207,
+                "nanosecondsPerOperation": 487.0743801652985
+              },
+              {
+                "round": 5,
+                "operations": 223850,
+                "elapsedMs": 106.85359999999855,
+                "nanosecondsPerOperation": 477.3446504355531
+              },
+              {
+                "round": 6,
+                "operations": 223850,
+                "elapsedMs": 104.12830000000031,
+                "nanosecondsPerOperation": 465.169979897254
+              },
+              {
+                "round": 7,
+                "operations": 223850,
+                "elapsedMs": 102.75540000000183,
+                "nanosecondsPerOperation": 459.03685503686324
+              }
+            ]
+          }
+        },
+        {
+          "name": "shared-prefix",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 4931.927286392061,
+            "updated-source": 5009.7562199037775,
+            "source-control": 4858.691809074833
+          },
+          "sourceVersusPublished": 0.9844645267962339,
+          "controlRatio": 0.9698459557315853,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 21289,
+                "elapsedMs": 104.9958000000006,
+                "nanosecondsPerOperation": 4931.927286392061
+              },
+              {
+                "round": 1,
+                "operations": 21289,
+                "elapsedMs": 101.78710000000137,
+                "nanosecondsPerOperation": 4781.206256752378
+              },
+              {
+                "round": 2,
+                "operations": 21289,
+                "elapsedMs": 104.12329999999929,
+                "nanosecondsPerOperation": 4890.943679834622
+              },
+              {
+                "round": 3,
+                "operations": 21289,
+                "elapsedMs": 106.71990000000005,
+                "nanosecondsPerOperation": 5012.912771854012
+              },
+              {
+                "round": 4,
+                "operations": 21289,
+                "elapsedMs": 106.09340000000157,
+                "nanosecondsPerOperation": 4983.484428578213
+              },
+              {
+                "round": 5,
+                "operations": 21289,
+                "elapsedMs": 102.45550000000003,
+                "nanosecondsPerOperation": 4812.602752595239
+              },
+              {
+                "round": 6,
+                "operations": 21289,
+                "elapsedMs": 102.91149999999834,
+                "nanosecondsPerOperation": 4834.0222650194155
+              },
+              {
+                "round": 7,
+                "operations": 21289,
+                "elapsedMs": 199.1743000000024,
+                "nanosecondsPerOperation": 9355.737704918147
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 19936,
+                "elapsedMs": 97.70740000000296,
+                "nanosecondsPerOperation": 4901.053370786665
+              },
+              {
+                "round": 1,
+                "operations": 19936,
+                "elapsedMs": 100.96749999999884,
+                "nanosecondsPerOperation": 5064.581661316153
+              },
+              {
+                "round": 2,
+                "operations": 19936,
+                "elapsedMs": 106.12639999999737,
+                "nanosecondsPerOperation": 5323.354735152357
+              },
+              {
+                "round": 3,
+                "operations": 19936,
+                "elapsedMs": 99.55719999999928,
+                "nanosecondsPerOperation": 4993.840288924523
+              },
+              {
+                "round": 4,
+                "operations": 19936,
+                "elapsedMs": 95.3272999999972,
+                "nanosecondsPerOperation": 4781.666332263102
+              },
+              {
+                "round": 5,
+                "operations": 19936,
+                "elapsedMs": 99.87450000000172,
+                "nanosecondsPerOperation": 5009.7562199037775
+              },
+              {
+                "round": 6,
+                "operations": 19936,
+                "elapsedMs": 100.57519999999931,
+                "nanosecondsPerOperation": 5044.90369181377
+              },
+              {
+                "round": 7,
+                "operations": 19936,
+                "elapsedMs": 96.84590000000026,
+                "nanosecondsPerOperation": 4857.840088282517
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 20364,
+                "elapsedMs": 95.04370000000199,
+                "nanosecondsPerOperation": 4667.2412099784915
+              },
+              {
+                "round": 1,
+                "operations": 20364,
+                "elapsedMs": 98.9423999999999,
+                "nanosecondsPerOperation": 4858.691809074833
+              },
+              {
+                "round": 2,
+                "operations": 20364,
+                "elapsedMs": 98.36330000000089,
+                "nanosecondsPerOperation": 4830.254370457715
+              },
+              {
+                "round": 3,
+                "operations": 20364,
+                "elapsedMs": 98.76940000000104,
+                "nanosecondsPerOperation": 4850.196425063889
+              },
+              {
+                "round": 4,
+                "operations": 20364,
+                "elapsedMs": 99.66749999999956,
+                "nanosecondsPerOperation": 4894.298762522077
+              },
+              {
+                "round": 5,
+                "operations": 20364,
+                "elapsedMs": 100.67299999999886,
+                "nanosecondsPerOperation": 4943.675112944356
+              },
+              {
+                "round": 6,
+                "operations": 20364,
+                "elapsedMs": 98.14479999999821,
+                "nanosecondsPerOperation": 4819.524651345424
+              },
+              {
+                "round": 7,
+                "operations": 20364,
+                "elapsedMs": 100.4951000000001,
+                "nanosecondsPerOperation": 4934.9391082302145
+              }
+            ]
+          }
+        },
+        {
+          "name": "constraint",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 959.2271809105472,
+            "updated-source": 972.6592460948214,
+            "source-control": 965.8973773486538
+          },
+          "sourceVersusPublished": 0.9861903690956486,
+          "controlRatio": 0.9930480599723736,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 68813,
+                "elapsedMs": 63.81920000000173,
+                "nanosecondsPerOperation": 927.4294101405509
+              },
+              {
+                "round": 1,
+                "operations": 68813,
+                "elapsedMs": 70.0441000000028,
+                "nanosecondsPerOperation": 1017.8905148736837
+              },
+              {
+                "round": 2,
+                "operations": 68813,
+                "elapsedMs": 65.42109999999957,
+                "nanosecondsPerOperation": 950.7084417188549
+              },
+              {
+                "round": 3,
+                "operations": 68813,
+                "elapsedMs": 63.991799999999785,
+                "nanosecondsPerOperation": 929.9376571287371
+              },
+              {
+                "round": 4,
+                "operations": 68813,
+                "elapsedMs": 71.2667999999976,
+                "nanosecondsPerOperation": 1035.6589597895397
+              },
+              {
+                "round": 5,
+                "operations": 68813,
+                "elapsedMs": 66.00729999999749,
+                "nanosecondsPerOperation": 959.2271809105472
+              },
+              {
+                "round": 6,
+                "operations": 68813,
+                "elapsedMs": 64.31339999999909,
+                "nanosecondsPerOperation": 934.6111926525379
+              },
+              {
+                "round": 7,
+                "operations": 68813,
+                "elapsedMs": 70.09309999999823,
+                "nanosecondsPerOperation": 1018.6025896269342
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 85528,
+                "elapsedMs": 81.13999999999942,
+                "nanosecondsPerOperation": 948.6951641567606
+              },
+              {
+                "round": 1,
+                "operations": 85528,
+                "elapsedMs": 85.73909999999887,
+                "nanosecondsPerOperation": 1002.4681975493273
+              },
+              {
+                "round": 2,
+                "operations": 85528,
+                "elapsedMs": 84.9142000000029,
+                "nanosecondsPerOperation": 992.8234028622544
+              },
+              {
+                "round": 3,
+                "operations": 85528,
+                "elapsedMs": 81.04219999999987,
+                "nanosecondsPerOperation": 947.55167898232
+              },
+              {
+                "round": 4,
+                "operations": 85528,
+                "elapsedMs": 83.18959999999788,
+                "nanosecondsPerOperation": 972.6592460948214
+              },
+              {
+                "round": 5,
+                "operations": 85528,
+                "elapsedMs": 86.96930000000066,
+                "nanosecondsPerOperation": 1016.8517912262728
+              },
+              {
+                "round": 6,
+                "operations": 85528,
+                "elapsedMs": 82.4936000000016,
+                "nanosecondsPerOperation": 964.5215601908335
+              },
+              {
+                "round": 7,
+                "operations": 85528,
+                "elapsedMs": 79.45920000000115,
+                "nanosecondsPerOperation": 929.0431203816428
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 122624,
+                "elapsedMs": 117.77939999999944,
+                "nanosecondsPerOperation": 960.492236430058
+              },
+              {
+                "round": 1,
+                "operations": 122624,
+                "elapsedMs": 119.29040000000168,
+                "nanosecondsPerOperation": 972.814457202519
+              },
+              {
+                "round": 2,
+                "operations": 122624,
+                "elapsedMs": 115.58829999999944,
+                "nanosecondsPerOperation": 942.6237930584505
+              },
+              {
+                "round": 3,
+                "operations": 122624,
+                "elapsedMs": 121.71249999999782,
+                "nanosecondsPerOperation": 992.5667079853685
+              },
+              {
+                "round": 4,
+                "operations": 122624,
+                "elapsedMs": 118.44220000000132,
+                "nanosecondsPerOperation": 965.8973773486538
+              },
+              {
+                "round": 5,
+                "operations": 122624,
+                "elapsedMs": 114.65919999999824,
+                "nanosecondsPerOperation": 935.0469728601109
+              },
+              {
+                "round": 6,
+                "operations": 122624,
+                "elapsedMs": 121.18379999999888,
+                "nanosecondsPerOperation": 988.255153966588
+              },
+              {
+                "round": 7,
+                "operations": 122624,
+                "elapsedMs": 117.77160000000003,
+                "nanosecondsPerOperation": 960.4286273486432
+              }
+            ]
+          }
+        },
+        {
+          "name": "multi-capture",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 1327.499234928057,
+            "updated-source": 1428.1217852994725,
+            "source-control": 1421.48591593671
+          },
+          "sourceVersusPublished": 0.9295420380760346,
+          "controlRatio": 0.9953534289364747,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 78424,
+                "elapsedMs": 105.70369999999821,
+                "nanosecondsPerOperation": 1347.8488727940198
+              },
+              {
+                "round": 1,
+                "operations": 78424,
+                "elapsedMs": 103.9474999999984,
+                "nanosecondsPerOperation": 1325.455217790452
+              },
+              {
+                "round": 2,
+                "operations": 78424,
+                "elapsedMs": 104.00849999999991,
+                "nanosecondsPerOperation": 1326.233040905844
+              },
+              {
+                "round": 3,
+                "operations": 78424,
+                "elapsedMs": 109.74239999999918,
+                "nanosecondsPerOperation": 1399.347138631021
+              },
+              {
+                "round": 4,
+                "operations": 78424,
+                "elapsedMs": 104.10779999999795,
+                "nanosecondsPerOperation": 1327.499234928057
+              },
+              {
+                "round": 5,
+                "operations": 78424,
+                "elapsedMs": 108.82020000000193,
+                "nanosecondsPerOperation": 1387.587983270452
+              },
+              {
+                "round": 6,
+                "operations": 78424,
+                "elapsedMs": 102.61899999999878,
+                "nanosecondsPerOperation": 1308.5152504335251
+              },
+              {
+                "round": 7,
+                "operations": 78424,
+                "elapsedMs": 102.90829999999914,
+                "nanosecondsPerOperation": 1312.2041721921753
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 60270,
+                "elapsedMs": 89.90030000000115,
+                "nanosecondsPerOperation": 1491.6260162601816
+              },
+              {
+                "round": 1,
+                "operations": 60270,
+                "elapsedMs": 83.41489999999976,
+                "nanosecondsPerOperation": 1384.0202422432349
+              },
+              {
+                "round": 2,
+                "operations": 60270,
+                "elapsedMs": 86.07289999999921,
+                "nanosecondsPerOperation": 1428.1217852994725
+              },
+              {
+                "round": 3,
+                "operations": 60270,
+                "elapsedMs": 85.05479999999807,
+                "nanosecondsPerOperation": 1411.2294673966826
+              },
+              {
+                "round": 4,
+                "operations": 60270,
+                "elapsedMs": 82.47919999999795,
+                "nanosecondsPerOperation": 1368.4951053591828
+              },
+              {
+                "round": 5,
+                "operations": 60270,
+                "elapsedMs": 81.63910000000033,
+                "nanosecondsPerOperation": 1354.5561639289917
+              },
+              {
+                "round": 6,
+                "operations": 60270,
+                "elapsedMs": 86.24239999999918,
+                "nanosecondsPerOperation": 1430.9341297494473
+              },
+              {
+                "round": 7,
+                "operations": 60270,
+                "elapsedMs": 90.49750000000131,
+                "nanosecondsPerOperation": 1501.5347602455834
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 79345,
+                "elapsedMs": 108.07280000000173,
+                "nanosecondsPerOperation": 1362.0618816560807
+              },
+              {
+                "round": 1,
+                "operations": 79345,
+                "elapsedMs": 110.88910000000033,
+                "nanosecondsPerOperation": 1397.5562417291617
+              },
+              {
+                "round": 2,
+                "operations": 79345,
+                "elapsedMs": 114.12930000000051,
+                "nanosecondsPerOperation": 1438.39309345265
+              },
+              {
+                "round": 3,
+                "operations": 79345,
+                "elapsedMs": 112.78779999999824,
+                "nanosecondsPerOperation": 1421.48591593671
+              },
+              {
+                "round": 4,
+                "operations": 79345,
+                "elapsedMs": 107.39870000000155,
+                "nanosecondsPerOperation": 1353.5660722162902
+              },
+              {
+                "round": 5,
+                "operations": 79345,
+                "elapsedMs": 114.85759999999937,
+                "nanosecondsPerOperation": 1447.5719957149079
+              },
+              {
+                "round": 6,
+                "operations": 79345,
+                "elapsedMs": 119.98449999999866,
+                "nanosecondsPerOperation": 1512.187283382679
+              },
+              {
+                "round": 7,
+                "operations": 79345,
+                "elapsedMs": 108.15079999999944,
+                "nanosecondsPerOperation": 1363.0449303673759
+              }
+            ]
+          }
+        },
+        {
+          "name": "fallback-no-params",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 680.3934663059417,
+            "updated-source": 625.0601855904853,
+            "source-control": 678.7020131363524
+          },
+          "sourceVersusPublished": 1.0885247244842253,
+          "controlRatio": 1.0858186599986248,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 146747,
+                "elapsedMs": 99.73389999999927,
+                "nanosecondsPerOperation": 679.6316108676789
+              },
+              {
+                "round": 1,
+                "operations": 146747,
+                "elapsedMs": 100.86360000000059,
+                "nanosecondsPerOperation": 687.3298943078944
+              },
+              {
+                "round": 2,
+                "operations": 146747,
+                "elapsedMs": 100.1958999999988,
+                "nanosecondsPerOperation": 682.7798864712655
+              },
+              {
+                "round": 3,
+                "operations": 146747,
+                "elapsedMs": 97.28259999999864,
+                "nanosecondsPerOperation": 662.9273511553806
+              },
+              {
+                "round": 4,
+                "operations": 146747,
+                "elapsedMs": 100.09970000000249,
+                "nanosecondsPerOperation": 682.1243364430106
+              },
+              {
+                "round": 5,
+                "operations": 146747,
+                "elapsedMs": 97.94440000000031,
+                "nanosecondsPerOperation": 667.4371537407941
+              },
+              {
+                "round": 6,
+                "operations": 146747,
+                "elapsedMs": 97.6839,
+                "nanosecondsPerOperation": 665.6619896829237
+              },
+              {
+                "round": 7,
+                "operations": 146747,
+                "elapsedMs": 99.84569999999803,
+                "nanosecondsPerOperation": 680.3934663059417
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 182768,
+                "elapsedMs": 127.0632000000005,
+                "nanosecondsPerOperation": 695.2157926989435
+              },
+              {
+                "round": 1,
+                "operations": 182768,
+                "elapsedMs": 110.75689999999668,
+                "nanosecondsPerOperation": 605.9972205199854
+              },
+              {
+                "round": 2,
+                "operations": 182768,
+                "elapsedMs": 112.58439999999973,
+                "nanosecondsPerOperation": 615.9962356648851
+              },
+              {
+                "round": 3,
+                "operations": 182768,
+                "elapsedMs": 116.8798999999999,
+                "nanosecondsPerOperation": 639.498708745513
+              },
+              {
+                "round": 4,
+                "operations": 182768,
+                "elapsedMs": 114.26089999999749,
+                "nanosecondsPerOperation": 625.1690667950489
+              },
+              {
+                "round": 5,
+                "operations": 182768,
+                "elapsedMs": 111.95839999999953,
+                "nanosecondsPerOperation": 612.5711284251046
+              },
+              {
+                "round": 6,
+                "operations": 182768,
+                "elapsedMs": 114.2410000000018,
+                "nanosecondsPerOperation": 625.0601855904853
+              },
+              {
+                "round": 7,
+                "operations": 182768,
+                "elapsedMs": 113.91449999999895,
+                "nanosecondsPerOperation": 623.2737678368147
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 168692,
+                "elapsedMs": 114.49159999999756,
+                "nanosecondsPerOperation": 678.7020131363524
+              },
+              {
+                "round": 1,
+                "operations": 168692,
+                "elapsedMs": 108.50849999999991,
+                "nanosecondsPerOperation": 643.23441538425
+              },
+              {
+                "round": 2,
+                "operations": 168692,
+                "elapsedMs": 118.98819999999978,
+                "nanosecondsPerOperation": 705.3576933108848
+              },
+              {
+                "round": 3,
+                "operations": 168692,
+                "elapsedMs": 112.70530000000144,
+                "nanosecondsPerOperation": 668.1128921347868
+              },
+              {
+                "round": 4,
+                "operations": 168692,
+                "elapsedMs": 111.67549999999756,
+                "nanosecondsPerOperation": 662.0082754368764
+              },
+              {
+                "round": 5,
+                "operations": 168692,
+                "elapsedMs": 132.88560000000143,
+                "nanosecondsPerOperation": 787.7409717117672
+              },
+              {
+                "round": 6,
+                "operations": 168692,
+                "elapsedMs": 115.37809999999808,
+                "nanosecondsPerOperation": 683.9571526806136
+              },
+              {
+                "round": 7,
+                "operations": 168692,
+                "elapsedMs": 106.3881999999976,
+                "nanosecondsPerOperation": 630.6653546107557
+              }
+            ]
+          }
+        }
+      ],
+      "checksum": 259544855,
+      "limitation": "Local matcher fixtures; identical control drift is reported. No HTTP capacity or universal speed claim."
+    },
+    {
+      "date": "2026-10-18T03:50:52.167Z",
+      "runtime": "bun-1.4.3",
+      "cpu": "Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz",
+      "sourceSha256": "a8f2628cd983ff46de910af2090df3841fd44db7d54f794c4a08de1d8fed2c9f",
+      "rounds": 8,
+      "targetMilliseconds": 100,
+      "pathsPerCase": 1024,
+      "mode": "equivalent public matching outputs; all params consumed; no HTTP",
+      "rows": [
+        {
+          "name": "static",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 61.40217217233152,
+            "updated-source": 74.5166049425127,
+            "source-control": 76.77438648158609
+          },
+          "sourceVersusPublished": 0.8240065716856186,
+          "controlRatio": 1.030299039265345,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 2135558,
+                "elapsedMs": 125.98239999999998,
+                "nanosecondsPerOperation": 58.992731642034535
+              },
+              {
+                "round": 1,
+                "operations": 2135558,
+                "elapsedMs": 129.16570000000002,
+                "nanosecondsPerOperation": 60.48334908253488
+              },
+              {
+                "round": 2,
+                "operations": 2135558,
+                "elapsedMs": 129.0045,
+                "nanosecondsPerOperation": 60.40786529796896
+              },
+              {
+                "round": 3,
+                "operations": 2135558,
+                "elapsedMs": 130.79230000000007,
+                "nanosecondsPerOperation": 61.24502354888047
+              },
+              {
+                "round": 4,
+                "operations": 2135558,
+                "elapsedMs": 131.5273000000002,
+                "nanosecondsPerOperation": 61.58919589165932
+              },
+              {
+                "round": 5,
+                "operations": 2135558,
+                "elapsedMs": 132.52160000000003,
+                "nanosecondsPerOperation": 62.054788490876874
+              },
+              {
+                "round": 6,
+                "operations": 2135558,
+                "elapsedMs": 161.87530000000015,
+                "nanosecondsPerOperation": 75.80000168574216
+              },
+              {
+                "round": 7,
+                "operations": 2135558,
+                "elapsedMs": 131.12789999999995,
+                "nanosecondsPerOperation": 61.40217217233152
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 1353603,
+                "elapsedMs": 100.75079999999991,
+                "nanosecondsPerOperation": 74.43157262506061
+              },
+              {
+                "round": 1,
+                "operations": 1353603,
+                "elapsedMs": 113.0761,
+                "nanosecondsPerOperation": 83.53712277528936
+              },
+              {
+                "round": 2,
+                "operations": 1353603,
+                "elapsedMs": 100.86590000000001,
+                "nanosecondsPerOperation": 74.5166049425127
+              },
+              {
+                "round": 3,
+                "operations": 1353603,
+                "elapsedMs": 100.1534999999999,
+                "nanosecondsPerOperation": 73.99030587254896
+              },
+              {
+                "round": 4,
+                "operations": 1353603,
+                "elapsedMs": 100.77550000000019,
+                "nanosecondsPerOperation": 74.44982022055225
+              },
+              {
+                "round": 5,
+                "operations": 1353603,
+                "elapsedMs": 106.17140000000018,
+                "nanosecondsPerOperation": 78.43614412793129
+              },
+              {
+                "round": 6,
+                "operations": 1353603,
+                "elapsedMs": 102.38430000000017,
+                "nanosecondsPerOperation": 75.63835186535503
+              },
+              {
+                "round": 7,
+                "operations": 1353603,
+                "elapsedMs": 100.41300000000001,
+                "nanosecondsPerOperation": 74.18201644056641
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 1320865,
+                "elapsedMs": 101.93679999999995,
+                "nanosecondsPerOperation": 77.17427594795831
+              },
+              {
+                "round": 1,
+                "operations": 1320865,
+                "elapsedMs": 101.96199999999999,
+                "nanosecondsPerOperation": 77.19335435491135
+              },
+              {
+                "round": 2,
+                "operations": 1320865,
+                "elapsedMs": 101.16609999999991,
+                "nanosecondsPerOperation": 76.5907946686451
+              },
+              {
+                "round": 3,
+                "operations": 1320865,
+                "elapsedMs": 101.4086000000002,
+                "nanosecondsPerOperation": 76.77438648158609
+              },
+              {
+                "round": 4,
+                "operations": 1320865,
+                "elapsedMs": 100.6197000000002,
+                "nanosecondsPerOperation": 76.17712635280682
+              },
+              {
+                "round": 5,
+                "operations": 1320865,
+                "elapsedMs": 100.8094000000001,
+                "nanosecondsPerOperation": 76.32074436070309
+              },
+              {
+                "round": 6,
+                "operations": 1320865,
+                "elapsedMs": 102.06760000000031,
+                "nanosecondsPerOperation": 77.27330196500044
+              },
+              {
+                "round": 7,
+                "operations": 1320865,
+                "elapsedMs": 100.63439999999991,
+                "nanosecondsPerOperation": 76.18825542352921
+              }
+            ]
+          }
+        },
+        {
+          "name": "single-small",
+          "registrations": 1,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 241.72387978285863,
+            "updated-source": 239.1416885896536,
+            "source-control": 245.89378828813733
+          },
+          "sourceVersusPublished": 1.0107977459239064,
+          "controlRatio": 1.0282347245196122,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 265819,
+                "elapsedMs": 69.45070000000032,
+                "nanosecondsPerOperation": 261.27063904386193
+              },
+              {
+                "round": 1,
+                "operations": 265819,
+                "elapsedMs": 64.2547999999997,
+                "nanosecondsPerOperation": 241.72387978285863
+              },
+              {
+                "round": 2,
+                "operations": 265819,
+                "elapsedMs": 61.72059999999965,
+                "nanosecondsPerOperation": 232.19032499557838
+              },
+              {
+                "round": 3,
+                "operations": 265819,
+                "elapsedMs": 79.5002999999997,
+                "nanosecondsPerOperation": 299.07681542703756
+              },
+              {
+                "round": 4,
+                "operations": 265819,
+                "elapsedMs": 69.7492000000002,
+                "nanosecondsPerOperation": 262.39358360388155
+              },
+              {
+                "round": 5,
+                "operations": 265819,
+                "elapsedMs": 63.624399999999696,
+                "nanosecondsPerOperation": 239.35234125476242
+              },
+              {
+                "round": 6,
+                "operations": 265819,
+                "elapsedMs": 63.58599999999933,
+                "nanosecondsPerOperation": 239.20788205508006
+              },
+              {
+                "round": 7,
+                "operations": 265819,
+                "elapsedMs": 59.59929999999986,
+                "nanosecondsPerOperation": 224.2100828007022
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 330323,
+                "elapsedMs": 90.40970000000016,
+                "nanosecondsPerOperation": 273.70089276253896
+              },
+              {
+                "round": 1,
+                "operations": 330323,
+                "elapsedMs": 78.99400000000014,
+                "nanosecondsPerOperation": 239.1416885896536
+              },
+              {
+                "round": 2,
+                "operations": 330323,
+                "elapsedMs": 80.09850000000006,
+                "nanosecondsPerOperation": 242.4853855166006
+              },
+              {
+                "round": 3,
+                "operations": 330323,
+                "elapsedMs": 77.65850000000046,
+                "nanosecondsPerOperation": 235.0986761442602
+              },
+              {
+                "round": 4,
+                "operations": 330323,
+                "elapsedMs": 78.88900000000012,
+                "nanosecondsPerOperation": 238.8238178994503
+              },
+              {
+                "round": 5,
+                "operations": 330323,
+                "elapsedMs": 75.14589999999953,
+                "nanosecondsPerOperation": 227.4921818946895
+              },
+              {
+                "round": 6,
+                "operations": 330323,
+                "elapsedMs": 78.51479999999992,
+                "nanosecondsPerOperation": 237.69098730636355
+              },
+              {
+                "round": 7,
+                "operations": 330323,
+                "elapsedMs": 86.8804999999993,
+                "nanosecondsPerOperation": 263.01680476381995
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 359772,
+                "elapsedMs": 92.13070000000016,
+                "nanosecondsPerOperation": 256.0807956150011
+              },
+              {
+                "round": 1,
+                "operations": 359772,
+                "elapsedMs": 84.68549999999959,
+                "nanosecondsPerOperation": 235.38657816617078
+              },
+              {
+                "round": 2,
+                "operations": 359772,
+                "elapsedMs": 88.2494000000006,
+                "nanosecondsPerOperation": 245.29257418587497
+              },
+              {
+                "round": 3,
+                "operations": 359772,
+                "elapsedMs": 86.9310000000005,
+                "nanosecondsPerOperation": 241.62803108635606
+              },
+              {
+                "round": 4,
+                "operations": 359772,
+                "elapsedMs": 86.60740000000078,
+                "nanosecondsPerOperation": 240.72857254038885
+              },
+              {
+                "round": 5,
+                "operations": 359772,
+                "elapsedMs": 88.46569999999974,
+                "nanosecondsPerOperation": 245.89378828813733
+              },
+              {
+                "round": 6,
+                "operations": 359772,
+                "elapsedMs": 92.6898000000001,
+                "nanosecondsPerOperation": 257.63483539575094
+              },
+              {
+                "round": 7,
+                "operations": 359772,
+                "elapsedMs": 89.71540000000005,
+                "nanosecondsPerOperation": 249.36737711661843
+              }
+            ]
+          }
+        },
+        {
+          "name": "single-large",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 533.8377887140608,
+            "updated-source": 557.7588699167842,
+            "source-control": 543.6447489678941
+          },
+          "sourceVersusPublished": 0.9571121456010331,
+          "controlRatio": 0.9746949412906766,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 129843,
+                "elapsedMs": 69.3150999999998,
+                "nanosecondsPerOperation": 533.8377887140608
+              },
+              {
+                "round": 1,
+                "operations": 129843,
+                "elapsedMs": 70.02019999999993,
+                "nanosecondsPerOperation": 539.2681931255433
+              },
+              {
+                "round": 2,
+                "operations": 129843,
+                "elapsedMs": 66.07229999999981,
+                "nanosecondsPerOperation": 508.8630114830974
+              },
+              {
+                "round": 3,
+                "operations": 129843,
+                "elapsedMs": 69.47399999999925,
+                "nanosecondsPerOperation": 535.0615743628787
+              },
+              {
+                "round": 4,
+                "operations": 129843,
+                "elapsedMs": 63.09929999999986,
+                "nanosecondsPerOperation": 485.96612832420584
+              },
+              {
+                "round": 5,
+                "operations": 129843,
+                "elapsedMs": 74.79669999999987,
+                "nanosecondsPerOperation": 576.054927874432
+              },
+              {
+                "round": 6,
+                "operations": 129843,
+                "elapsedMs": 67.82689999999911,
+                "nanosecondsPerOperation": 522.3762543995373
+              },
+              {
+                "round": 7,
+                "operations": 129843,
+                "elapsedMs": 66.1854000000003,
+                "nanosecondsPerOperation": 509.7340634458561
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 224833,
+                "elapsedMs": 119.40650000000005,
+                "nanosecondsPerOperation": 531.0897421641843
+              },
+              {
+                "round": 1,
+                "operations": 224833,
+                "elapsedMs": 125.40260000000035,
+                "nanosecondsPerOperation": 557.7588699167842
+              },
+              {
+                "round": 2,
+                "operations": 224833,
+                "elapsedMs": 119.45880000000034,
+                "nanosecondsPerOperation": 531.3223592622095
+              },
+              {
+                "round": 3,
+                "operations": 224833,
+                "elapsedMs": 125.76220000000012,
+                "nanosecondsPerOperation": 559.3582792561596
+              },
+              {
+                "round": 4,
+                "operations": 224833,
+                "elapsedMs": 128.66730000000007,
+                "nanosecondsPerOperation": 572.2794251733512
+              },
+              {
+                "round": 5,
+                "operations": 224833,
+                "elapsedMs": 116.76009999999951,
+                "nanosecondsPerOperation": 519.319228049261
+              },
+              {
+                "round": 6,
+                "operations": 224833,
+                "elapsedMs": 122.9460999999992,
+                "nanosecondsPerOperation": 546.8329827027136
+              },
+              {
+                "round": 7,
+                "operations": 224833,
+                "elapsedMs": 138.74579999999878,
+                "nanosecondsPerOperation": 617.1060298087859
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 241981,
+                "elapsedMs": 143.40930000000026,
+                "nanosecondsPerOperation": 592.6469433550579
+              },
+              {
+                "round": 1,
+                "operations": 241981,
+                "elapsedMs": 126.55199999999968,
+                "nanosecondsPerOperation": 522.9832094255321
+              },
+              {
+                "round": 2,
+                "operations": 241981,
+                "elapsedMs": 138.92149999999947,
+                "nanosecondsPerOperation": 574.1008591583615
+              },
+              {
+                "round": 3,
+                "operations": 241981,
+                "elapsedMs": 131.55169999999998,
+                "nanosecondsPerOperation": 543.6447489678941
+              },
+              {
+                "round": 4,
+                "operations": 241981,
+                "elapsedMs": 127.00380000000041,
+                "nanosecondsPerOperation": 524.8502981639072
+              },
+              {
+                "round": 5,
+                "operations": 241981,
+                "elapsedMs": 129.4952000000003,
+                "nanosecondsPerOperation": 535.1461478380546
+              },
+              {
+                "round": 6,
+                "operations": 241981,
+                "elapsedMs": 129.14990000000034,
+                "nanosecondsPerOperation": 533.719176298967
+              },
+              {
+                "round": 7,
+                "operations": 241981,
+                "elapsedMs": 132.86319999999978,
+                "nanosecondsPerOperation": 549.0645959806752
+              }
+            ]
+          }
+        },
+        {
+          "name": "deep",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 802.1932410442711,
+            "updated-source": 879.6425450096114,
+            "source-control": 912.5247359795352
+          },
+          "sourceVersusPublished": 0.9119536629910345,
+          "controlRatio": 1.0373813103475624,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 127209,
+                "elapsedMs": 114.15309999999954,
+                "nanosecondsPerOperation": 897.3665385310751
+              },
+              {
+                "round": 1,
+                "operations": 127209,
+                "elapsedMs": 112.37460000000101,
+                "nanosecondsPerOperation": 883.3856095087691
+              },
+              {
+                "round": 2,
+                "operations": 127209,
+                "elapsedMs": 102.04620000000068,
+                "nanosecondsPerOperation": 802.1932410442711
+              },
+              {
+                "round": 3,
+                "operations": 127209,
+                "elapsedMs": 99.76119999999901,
+                "nanosecondsPerOperation": 784.2306755025116
+              },
+              {
+                "round": 4,
+                "operations": 127209,
+                "elapsedMs": 105.3801999999996,
+                "nanosecondsPerOperation": 828.4020784692875
+              },
+              {
+                "round": 5,
+                "operations": 127209,
+                "elapsedMs": 101.1887999999999,
+                "nanosecondsPerOperation": 795.4531518996289
+              },
+              {
+                "round": 6,
+                "operations": 127209,
+                "elapsedMs": 96.8145999999997,
+                "nanosecondsPerOperation": 761.0672200866268
+              },
+              {
+                "round": 7,
+                "operations": 127209,
+                "elapsedMs": 97.38220000000001,
+                "nanosecondsPerOperation": 765.5291685336731
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 114420,
+                "elapsedMs": 105.66480000000047,
+                "nanosecondsPerOperation": 923.4819087572143
+              },
+              {
+                "round": 1,
+                "operations": 114420,
+                "elapsedMs": 103.94260000000031,
+                "nanosecondsPerOperation": 908.4303443453969
+              },
+              {
+                "round": 2,
+                "operations": 114420,
+                "elapsedMs": 97.84740000000056,
+                "nanosecondsPerOperation": 855.1599370739431
+              },
+              {
+                "round": 3,
+                "operations": 114420,
+                "elapsedMs": 100.64869999999974,
+                "nanosecondsPerOperation": 879.6425450096114
+              },
+              {
+                "round": 4,
+                "operations": 114420,
+                "elapsedMs": 94.6872000000003,
+                "nanosecondsPerOperation": 827.5406397482983
+              },
+              {
+                "round": 5,
+                "operations": 114420,
+                "elapsedMs": 96.51319999999942,
+                "nanosecondsPerOperation": 843.4993882188378
+              },
+              {
+                "round": 6,
+                "operations": 114420,
+                "elapsedMs": 108.69850000000042,
+                "nanosecondsPerOperation": 949.9956301345954
+              },
+              {
+                "round": 7,
+                "operations": 114420,
+                "elapsedMs": 99.08259999999973,
+                "nanosecondsPerOperation": 865.9552525782183
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 147053,
+                "elapsedMs": 136.0026999999991,
+                "nanosecondsPerOperation": 924.8549842573705
+              },
+              {
+                "round": 1,
+                "operations": 147053,
+                "elapsedMs": 132.3711000000003,
+                "nanosecondsPerOperation": 900.1591263014036
+              },
+              {
+                "round": 2,
+                "operations": 147053,
+                "elapsedMs": 133.23899999999958,
+                "nanosecondsPerOperation": 906.0610800187659
+              },
+              {
+                "round": 3,
+                "operations": 147053,
+                "elapsedMs": 133.16750000000138,
+                "nanosecondsPerOperation": 905.5748607644957
+              },
+              {
+                "round": 4,
+                "operations": 147053,
+                "elapsedMs": 132.8132999999998,
+                "nanosecondsPerOperation": 903.1662053817317
+              },
+              {
+                "round": 5,
+                "operations": 147053,
+                "elapsedMs": 134.1894999999986,
+                "nanosecondsPerOperation": 912.5247359795352
+              },
+              {
+                "round": 6,
+                "operations": 147053,
+                "elapsedMs": 138.39480000000003,
+                "nanosecondsPerOperation": 941.1219084275739
+              },
+              {
+                "round": 7,
+                "operations": 147053,
+                "elapsedMs": 142.29050000000097,
+                "nanosecondsPerOperation": 967.6137175032198
+              }
+            ]
+          }
+        },
+        {
+          "name": "deep-no-params",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 702.5088150443402,
+            "updated-source": 712.5199256110601,
+            "source-control": 704.002293792425
+          },
+          "sourceVersusPublished": 0.9859497114299866,
+          "controlRatio": 0.988045763335909,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 140385,
+                "elapsedMs": 99.64370000000054,
+                "nanosecondsPerOperation": 709.7887950991953
+              },
+              {
+                "round": 1,
+                "operations": 140385,
+                "elapsedMs": 101.28579999999965,
+                "nanosecondsPerOperation": 721.4859137372202
+              },
+              {
+                "round": 2,
+                "operations": 140385,
+                "elapsedMs": 97.70550000000003,
+                "nanosecondsPerOperation": 695.9824767603378
+              },
+              {
+                "round": 3,
+                "operations": 140385,
+                "elapsedMs": 97.10850000000028,
+                "nanosecondsPerOperation": 691.7298856715481
+              },
+              {
+                "round": 4,
+                "operations": 140385,
+                "elapsedMs": 98.62169999999969,
+                "nanosecondsPerOperation": 702.5088150443402
+              },
+              {
+                "round": 5,
+                "operations": 140385,
+                "elapsedMs": 104.51239999999962,
+                "nanosecondsPerOperation": 744.4698507675294
+              },
+              {
+                "round": 6,
+                "operations": 140385,
+                "elapsedMs": 94.67160000000149,
+                "nanosecondsPerOperation": 674.37119350359
+              },
+              {
+                "round": 7,
+                "operations": 140385,
+                "elapsedMs": 96.22609999999986,
+                "nanosecondsPerOperation": 685.444313851194
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 165616,
+                "elapsedMs": 134.32010000000082,
+                "nanosecondsPerOperation": 811.0333542652934
+              },
+              {
+                "round": 1,
+                "operations": 165616,
+                "elapsedMs": 118.00470000000132,
+                "nanosecondsPerOperation": 712.5199256110601
+              },
+              {
+                "round": 2,
+                "operations": 165616,
+                "elapsedMs": 109.99250000000029,
+                "nanosecondsPerOperation": 664.1417495894135
+              },
+              {
+                "round": 3,
+                "operations": 165616,
+                "elapsedMs": 120.10019999999895,
+                "nanosecondsPerOperation": 725.1726886291116
+              },
+              {
+                "round": 4,
+                "operations": 165616,
+                "elapsedMs": 112.05090000000018,
+                "nanosecondsPerOperation": 676.5705004347417
+              },
+              {
+                "round": 5,
+                "operations": 165616,
+                "elapsedMs": 119.60710000000108,
+                "nanosecondsPerOperation": 722.1953192928286
+              },
+              {
+                "round": 6,
+                "operations": 165616,
+                "elapsedMs": 113.26800000000003,
+                "nanosecondsPerOperation": 683.9194280745824
+              },
+              {
+                "round": 7,
+                "operations": 165616,
+                "elapsedMs": 109.3726999999999,
+                "nanosecondsPerOperation": 660.3993575499945
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 160433,
+                "elapsedMs": 131.6867000000002,
+                "nanosecondsPerOperation": 820.8205294421982
+              },
+              {
+                "round": 1,
+                "operations": 160433,
+                "elapsedMs": 108.85330000000067,
+                "nanosecondsPerOperation": 678.4969426489605
+              },
+              {
+                "round": 2,
+                "operations": 160433,
+                "elapsedMs": 112.94520000000011,
+                "nanosecondsPerOperation": 704.002293792425
+              },
+              {
+                "round": 3,
+                "operations": 160433,
+                "elapsedMs": 118.80489999999918,
+                "nanosecondsPerOperation": 740.5265749565187
+              },
+              {
+                "round": 4,
+                "operations": 160433,
+                "elapsedMs": 103.306700000001,
+                "nanosecondsPerOperation": 643.9242549849532
+              },
+              {
+                "round": 5,
+                "operations": 160433,
+                "elapsedMs": 115.50970000000052,
+                "nanosecondsPerOperation": 719.9871597489328
+              },
+              {
+                "round": 6,
+                "operations": 160433,
+                "elapsedMs": 111.21990000000005,
+                "nanosecondsPerOperation": 693.2482718642677
+              },
+              {
+                "round": 7,
+                "operations": 160433,
+                "elapsedMs": 110.84059999999954,
+                "nanosecondsPerOperation": 690.8840450530722
+              }
+            ]
+          }
+        },
+        {
+          "name": "late-miss",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 738.5602808947616,
+            "updated-source": 489.0572562300487,
+            "source-control": 502.6468132165762
+          },
+          "sourceVersusPublished": 1.510171399128262,
+          "controlRatio": 1.0277872515199633,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 149807,
+                "elapsedMs": 111.2401000000009,
+                "nanosecondsPerOperation": 742.5560888343061
+              },
+              {
+                "round": 1,
+                "operations": 149807,
+                "elapsedMs": 100.27940000000126,
+                "nanosecondsPerOperation": 669.390615925833
+              },
+              {
+                "round": 2,
+                "operations": 149807,
+                "elapsedMs": 110.6864999999998,
+                "nanosecondsPerOperation": 738.8606673920431
+              },
+              {
+                "round": 3,
+                "operations": 149807,
+                "elapsedMs": 97.91949999999997,
+                "nanosecondsPerOperation": 653.6376804822203
+              },
+              {
+                "round": 4,
+                "operations": 149807,
+                "elapsedMs": 107.07760000000053,
+                "nanosecondsPerOperation": 714.7703378346843
+              },
+              {
+                "round": 5,
+                "operations": 149807,
+                "elapsedMs": 100.61620000000039,
+                "nanosecondsPerOperation": 671.6388419766793
+              },
+              {
+                "round": 6,
+                "operations": 149807,
+                "elapsedMs": 112.45939999999973,
+                "nanosecondsPerOperation": 750.6952278598445
+              },
+              {
+                "round": 7,
+                "operations": 149807,
+                "elapsedMs": 110.64150000000154,
+                "nanosecondsPerOperation": 738.5602808947616
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 196066,
+                "elapsedMs": 102.80739999999969,
+                "nanosecondsPerOperation": 524.3509838523746
+              },
+              {
+                "round": 1,
+                "operations": 196066,
+                "elapsedMs": 95.88750000000073,
+                "nanosecondsPerOperation": 489.0572562300487
+              },
+              {
+                "round": 2,
+                "operations": 196066,
+                "elapsedMs": 89.21240000000034,
+                "nanosecondsPerOperation": 455.0120877663661
+              },
+              {
+                "round": 3,
+                "operations": 196066,
+                "elapsedMs": 95.38620000000083,
+                "nanosecondsPerOperation": 486.50046412943
+              },
+              {
+                "round": 4,
+                "operations": 196066,
+                "elapsedMs": 96.66109999999753,
+                "nanosecondsPerOperation": 493.002866381716
+              },
+              {
+                "round": 5,
+                "operations": 196066,
+                "elapsedMs": 93.29799999999886,
+                "nanosecondsPerOperation": 475.84996888802175
+              },
+              {
+                "round": 6,
+                "operations": 196066,
+                "elapsedMs": 92.46359999999913,
+                "nanosecondsPerOperation": 471.594259076021
+              },
+              {
+                "round": 7,
+                "operations": 196066,
+                "elapsedMs": 97.3022000000019,
+                "nanosecondsPerOperation": 496.27268368815555
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 177232,
+                "elapsedMs": 89.08510000000024,
+                "nanosecondsPerOperation": 502.6468132165762
+              },
+              {
+                "round": 1,
+                "operations": 177232,
+                "elapsedMs": 84.1958999999988,
+                "nanosecondsPerOperation": 475.0603728446263
+              },
+              {
+                "round": 2,
+                "operations": 177232,
+                "elapsedMs": 91.23600000000079,
+                "nanosecondsPerOperation": 514.7828834522027
+              },
+              {
+                "round": 3,
+                "operations": 177232,
+                "elapsedMs": 93.53450000000157,
+                "nanosecondsPerOperation": 527.7517604044505
+              },
+              {
+                "round": 4,
+                "operations": 177232,
+                "elapsedMs": 82.46039999999994,
+                "nanosecondsPerOperation": 465.26812313803345
+              },
+              {
+                "round": 5,
+                "operations": 177232,
+                "elapsedMs": 83.43249999999898,
+                "nanosecondsPerOperation": 470.75302428454785
+              },
+              {
+                "round": 6,
+                "operations": 177232,
+                "elapsedMs": 88.77700000000186,
+                "nanosecondsPerOperation": 500.90841383047
+              },
+              {
+                "round": 7,
+                "operations": 177232,
+                "elapsedMs": 93.0650999999998,
+                "nanosecondsPerOperation": 525.1032544912872
+              }
+            ]
+          }
+        },
+        {
+          "name": "shared-prefix",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 2232.103607095623,
+            "updated-source": 2065.411019186767,
+            "source-control": 2217.0557565853555
+          },
+          "sourceVersusPublished": 1.0807067389300988,
+          "controlRatio": 1.0734210943922904,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 43858,
+                "elapsedMs": 90.71570000000065,
+                "nanosecondsPerOperation": 2068.3957316795263
+              },
+              {
+                "round": 1,
+                "operations": 43858,
+                "elapsedMs": 91.5096999999987,
+                "nanosecondsPerOperation": 2086.499612385396
+              },
+              {
+                "round": 2,
+                "operations": 43858,
+                "elapsedMs": 92.41250000000218,
+                "nanosecondsPerOperation": 2107.084226366961
+              },
+              {
+                "round": 3,
+                "operations": 43858,
+                "elapsedMs": 98.40989999999874,
+                "nanosecondsPerOperation": 2243.8300880112806
+              },
+              {
+                "round": 4,
+                "operations": 43858,
+                "elapsedMs": 111.89040000000023,
+                "nanosecondsPerOperation": 2551.1970450088975
+              },
+              {
+                "round": 5,
+                "operations": 43858,
+                "elapsedMs": 114.3243999999977,
+                "nanosecondsPerOperation": 2606.6943317068194
+              },
+              {
+                "round": 6,
+                "operations": 43858,
+                "elapsedMs": 97.89559999999983,
+                "nanosecondsPerOperation": 2232.103607095623
+              },
+              {
+                "round": 7,
+                "operations": 43858,
+                "elapsedMs": 87.10670000000027,
+                "nanosecondsPerOperation": 1986.1074376396614
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 45448,
+                "elapsedMs": 93.12739999999758,
+                "nanosecondsPerOperation": 2049.0978700932405
+              },
+              {
+                "round": 1,
+                "operations": 45448,
+                "elapsedMs": 98.41350000000239,
+                "nanosecondsPerOperation": 2165.4088188699698
+              },
+              {
+                "round": 2,
+                "operations": 45448,
+                "elapsedMs": 94.77370000000155,
+                "nanosecondsPerOperation": 2085.3216863228645
+              },
+              {
+                "round": 3,
+                "operations": 45448,
+                "elapsedMs": 93.86880000000019,
+                "nanosecondsPerOperation": 2065.411019186767
+              },
+              {
+                "round": 4,
+                "operations": 45448,
+                "elapsedMs": 97.00530000000072,
+                "nanosecondsPerOperation": 2134.4239570498307
+              },
+              {
+                "round": 5,
+                "operations": 45448,
+                "elapsedMs": 92.7274000000034,
+                "nanosecondsPerOperation": 2040.296602710865
+              },
+              {
+                "round": 6,
+                "operations": 45448,
+                "elapsedMs": 92.99040000000241,
+                "nanosecondsPerOperation": 2046.0834360148392
+              },
+              {
+                "round": 7,
+                "operations": 45448,
+                "elapsedMs": 91.03710000000137,
+                "nanosecondsPerOperation": 2003.104647069208
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 51402,
+                "elapsedMs": 112.14819999999963,
+                "nanosecondsPerOperation": 2181.786700906572
+              },
+              {
+                "round": 1,
+                "operations": 51402,
+                "elapsedMs": 114.06520000000091,
+                "nanosecondsPerOperation": 2219.080969612095
+              },
+              {
+                "round": 2,
+                "operations": 51402,
+                "elapsedMs": 113.96110000000044,
+                "nanosecondsPerOperation": 2217.0557565853555
+              },
+              {
+                "round": 3,
+                "operations": 51402,
+                "elapsedMs": 104.18449999999939,
+                "nanosecondsPerOperation": 2026.8569316368894
+              },
+              {
+                "round": 4,
+                "operations": 51402,
+                "elapsedMs": 120.37109999999666,
+                "nanosecondsPerOperation": 2341.759075522288
+              },
+              {
+                "round": 5,
+                "operations": 51402,
+                "elapsedMs": 117.1794000000009,
+                "nanosecondsPerOperation": 2279.66616084979
+              },
+              {
+                "round": 6,
+                "operations": 51402,
+                "elapsedMs": 102.94140000000334,
+                "nanosecondsPerOperation": 2002.673047741398
+              },
+              {
+                "round": 7,
+                "operations": 51402,
+                "elapsedMs": 102.97929999999906,
+                "nanosecondsPerOperation": 2003.4103731372138
+              }
+            ]
+          }
+        },
+        {
+          "name": "constraint",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 832.2442987601066,
+            "updated-source": 879.4687219082466,
+            "source-control": 905.2819213810153
+          },
+          "sourceVersusPublished": 0.9463034648399163,
+          "controlRatio": 1.0293509010948791,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 138961,
+                "elapsedMs": 122.77100000000064,
+                "nanosecondsPerOperation": 883.4924906988338
+              },
+              {
+                "round": 1,
+                "operations": 138961,
+                "elapsedMs": 112.5837999999967,
+                "nanosecondsPerOperation": 810.1827131353165
+              },
+              {
+                "round": 2,
+                "operations": 138961,
+                "elapsedMs": 115.64950000000317,
+                "nanosecondsPerOperation": 832.2442987601066
+              },
+              {
+                "round": 3,
+                "operations": 138961,
+                "elapsedMs": 111.91560000000027,
+                "nanosecondsPerOperation": 805.3741697310776
+              },
+              {
+                "round": 4,
+                "operations": 138961,
+                "elapsedMs": 112.90380000000005,
+                "nanosecondsPerOperation": 812.4855175193043
+              },
+              {
+                "round": 5,
+                "operations": 138961,
+                "elapsedMs": 119.31160000000091,
+                "nanosecondsPerOperation": 858.5977360554466
+              },
+              {
+                "round": 6,
+                "operations": 138961,
+                "elapsedMs": 122.01019999999698,
+                "nanosecondsPerOperation": 878.0175732759335
+              },
+              {
+                "round": 7,
+                "operations": 138961,
+                "elapsedMs": 111.6830000000009,
+                "nanosecondsPerOperation": 803.7003187944885
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 143503,
+                "elapsedMs": 134.41259999999966,
+                "nanosecondsPerOperation": 936.6535891235699
+              },
+              {
+                "round": 1,
+                "operations": 143503,
+                "elapsedMs": 126.20639999999912,
+                "nanosecondsPerOperation": 879.4687219082466
+              },
+              {
+                "round": 2,
+                "operations": 143503,
+                "elapsedMs": 139.9861000000019,
+                "nanosecondsPerOperation": 975.4924984146805
+              },
+              {
+                "round": 3,
+                "operations": 143503,
+                "elapsedMs": 117.87970000000132,
+                "nanosecondsPerOperation": 821.4441509933682
+              },
+              {
+                "round": 4,
+                "operations": 143503,
+                "elapsedMs": 120.08299999999872,
+                "nanosecondsPerOperation": 836.7978369790089
+              },
+              {
+                "round": 5,
+                "operations": 143503,
+                "elapsedMs": 121.95550000000003,
+                "nanosecondsPerOperation": 849.8463446757213
+              },
+              {
+                "round": 6,
+                "operations": 143503,
+                "elapsedMs": 119.72339999999895,
+                "nanosecondsPerOperation": 834.2919660216089
+              },
+              {
+                "round": 7,
+                "operations": 143503,
+                "elapsedMs": 132.78499999999985,
+                "nanosecondsPerOperation": 925.311665958202
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 85272,
+                "elapsedMs": 83.16990000000078,
+                "nanosecondsPerOperation": 975.3482972136313
+              },
+              {
+                "round": 1,
+                "operations": 85272,
+                "elapsedMs": 94.41450000000259,
+                "nanosecondsPerOperation": 1107.215733183256
+              },
+              {
+                "round": 2,
+                "operations": 85272,
+                "elapsedMs": 77.19520000000193,
+                "nanosecondsPerOperation": 905.2819213810153
+              },
+              {
+                "round": 3,
+                "operations": 85272,
+                "elapsedMs": 79.49679999999717,
+                "nanosecondsPerOperation": 932.2731963598504
+              },
+              {
+                "round": 4,
+                "operations": 85272,
+                "elapsedMs": 70.82099999999991,
+                "nanosecondsPerOperation": 830.5305375738802
+              },
+              {
+                "round": 5,
+                "operations": 85272,
+                "elapsedMs": 74.52260000000024,
+                "nanosecondsPerOperation": 873.9398630265531
+              },
+              {
+                "round": 6,
+                "operations": 85272,
+                "elapsedMs": 71.38260000000082,
+                "nanosecondsPerOperation": 837.1165212496578
+              },
+              {
+                "round": 7,
+                "operations": 85272,
+                "elapsedMs": 70.14969999999812,
+                "nanosecondsPerOperation": 822.6580823716827
+              }
+            ]
+          }
+        },
+        {
+          "name": "multi-capture",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 1400.354725787622,
+            "updated-source": 1587.579005221195,
+            "source-control": 1475.5184648443428
+          },
+          "sourceVersusPublished": 0.8820693150905663,
+          "controlRatio": 0.9294141960757165,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 85700,
+                "elapsedMs": 113.24179999999978,
+                "nanosecondsPerOperation": 1321.3745624270687
+              },
+              {
+                "round": 1,
+                "operations": 85700,
+                "elapsedMs": 119.76209999999992,
+                "nanosecondsPerOperation": 1397.4574095682606
+              },
+              {
+                "round": 2,
+                "operations": 85700,
+                "elapsedMs": 123.2525999999998,
+                "nanosecondsPerOperation": 1438.1866977829616
+              },
+              {
+                "round": 3,
+                "operations": 85700,
+                "elapsedMs": 117.43439999999828,
+                "nanosecondsPerOperation": 1370.296382730435
+              },
+              {
+                "round": 4,
+                "operations": 85700,
+                "elapsedMs": 120.01039999999921,
+                "nanosecondsPerOperation": 1400.354725787622
+              },
+              {
+                "round": 5,
+                "operations": 85700,
+                "elapsedMs": 122.61719999999696,
+                "nanosecondsPerOperation": 1430.7724620769773
+              },
+              {
+                "round": 6,
+                "operations": 85700,
+                "elapsedMs": 118.54959999999846,
+                "nanosecondsPerOperation": 1383.309218203016
+              },
+              {
+                "round": 7,
+                "operations": 85700,
+                "elapsedMs": 122.28260000000228,
+                "nanosecondsPerOperation": 1426.8681446908083
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 50946,
+                "elapsedMs": 76.59009999999762,
+                "nanosecondsPerOperation": 1503.358457975064
+              },
+              {
+                "round": 1,
+                "operations": 50946,
+                "elapsedMs": 76.33230000000185,
+                "nanosecondsPerOperation": 1498.2981980921338
+              },
+              {
+                "round": 2,
+                "operations": 50946,
+                "elapsedMs": 77.82629999999699,
+                "nanosecondsPerOperation": 1527.623365916794
+              },
+              {
+                "round": 3,
+                "operations": 50946,
+                "elapsedMs": 73.35640000000058,
+                "nanosecondsPerOperation": 1439.8853688219012
+              },
+              {
+                "round": 4,
+                "operations": 50946,
+                "elapsedMs": 80.880799999999,
+                "nanosecondsPerOperation": 1587.579005221195
+              },
+              {
+                "round": 5,
+                "operations": 50946,
+                "elapsedMs": 88.04950000000099,
+                "nanosecondsPerOperation": 1728.2907392140892
+              },
+              {
+                "round": 6,
+                "operations": 50946,
+                "elapsedMs": 84.30589999999938,
+                "nanosecondsPerOperation": 1654.8090134652257
+              },
+              {
+                "round": 7,
+                "operations": 50946,
+                "elapsedMs": 83.58489999999802,
+                "nanosecondsPerOperation": 1640.6567738389278
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 80044,
+                "elapsedMs": 120.72749999999724,
+                "nanosecondsPerOperation": 1508.2642046873873
+              },
+              {
+                "round": 1,
+                "operations": 80044,
+                "elapsedMs": 112.88379999999961,
+                "nanosecondsPerOperation": 1410.2718504822299
+              },
+              {
+                "round": 2,
+                "operations": 80044,
+                "elapsedMs": 122.1875,
+                "nanosecondsPerOperation": 1526.5041727050123
+              },
+              {
+                "round": 3,
+                "operations": 80044,
+                "elapsedMs": 119.65409999999974,
+                "nanosecondsPerOperation": 1494.8540802558562
+              },
+              {
+                "round": 4,
+                "operations": 80044,
+                "elapsedMs": 109.86880000000019,
+                "nanosecondsPerOperation": 1372.6050672130352
+              },
+              {
+                "round": 5,
+                "operations": 80044,
+                "elapsedMs": 113.22060000000056,
+                "nanosecondsPerOperation": 1414.4795362550667
+              },
+              {
+                "round": 6,
+                "operations": 80044,
+                "elapsedMs": 118.10640000000058,
+                "nanosecondsPerOperation": 1475.5184648443428
+              },
+              {
+                "round": 7,
+                "operations": 80044,
+                "elapsedMs": 113.59330000000045,
+                "nanosecondsPerOperation": 1419.1357253510625
+              }
+            ]
+          }
+        },
+        {
+          "name": "fallback-no-params",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 853.0753081767394,
+            "updated-source": 734.9910939682441,
+            "source-control": 742.5669023538964
+          },
+          "sourceVersusPublished": 1.1606607415757304,
+          "controlRatio": 1.0103073471880457,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 92885,
+                "elapsedMs": 79.23789999999644,
+                "nanosecondsPerOperation": 853.0753081767394
+              },
+              {
+                "round": 1,
+                "operations": 92885,
+                "elapsedMs": 71.55719999999928,
+                "nanosecondsPerOperation": 770.3848845346319
+              },
+              {
+                "round": 2,
+                "operations": 92885,
+                "elapsedMs": 76.93960000000152,
+                "nanosecondsPerOperation": 828.3318081498791
+              },
+              {
+                "round": 3,
+                "operations": 92885,
+                "elapsedMs": 81.86789999999746,
+                "nanosecondsPerOperation": 881.3898907250629
+              },
+              {
+                "round": 4,
+                "operations": 92885,
+                "elapsedMs": 76.06810000000041,
+                "nanosecondsPerOperation": 818.949238305436
+              },
+              {
+                "round": 5,
+                "operations": 92885,
+                "elapsedMs": 83.93660000000091,
+                "nanosecondsPerOperation": 903.6615169295463
+              },
+              {
+                "round": 6,
+                "operations": 92885,
+                "elapsedMs": 82.0007000000005,
+                "nanosecondsPerOperation": 882.8196156537708
+              },
+              {
+                "round": 7,
+                "operations": 92885,
+                "elapsedMs": 74.07949999999983,
+                "nanosecondsPerOperation": 797.5399687785953
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 156074,
+                "elapsedMs": 104.03080000000045,
+                "nanosecondsPerOperation": 666.5479195766139
+              },
+              {
+                "round": 1,
+                "operations": 156074,
+                "elapsedMs": 101.69029999999839,
+                "nanosecondsPerOperation": 651.5518279790252
+              },
+              {
+                "round": 2,
+                "operations": 156074,
+                "elapsedMs": 114.71299999999974,
+                "nanosecondsPerOperation": 734.9910939682441
+              },
+              {
+                "round": 3,
+                "operations": 156074,
+                "elapsedMs": 128.88170000000173,
+                "nanosecondsPerOperation": 825.7730307418386
+              },
+              {
+                "round": 4,
+                "operations": 156074,
+                "elapsedMs": 119.95679999999993,
+                "nanosecondsPerOperation": 768.5892589412709
+              },
+              {
+                "round": 5,
+                "operations": 156074,
+                "elapsedMs": 115.25590000000011,
+                "nanosecondsPerOperation": 738.4695721260434
+              },
+              {
+                "round": 6,
+                "operations": 156074,
+                "elapsedMs": 106.76080000000002,
+                "nanosecondsPerOperation": 684.0396222304805
+              },
+              {
+                "round": 7,
+                "operations": 156074,
+                "elapsedMs": 108.31049999999959,
+                "nanosecondsPerOperation": 693.9688865538117
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 145249,
+                "elapsedMs": 108.142399999997,
+                "nanosecondsPerOperation": 744.5311155326164
+              },
+              {
+                "round": 1,
+                "operations": 145249,
+                "elapsedMs": 100.34770000000208,
+                "nanosecondsPerOperation": 690.8667185316392
+              },
+              {
+                "round": 2,
+                "operations": 145249,
+                "elapsedMs": 98.24169999999867,
+                "nanosecondsPerOperation": 676.3674792941684
+              },
+              {
+                "round": 3,
+                "operations": 145249,
+                "elapsedMs": 99.07300000000032,
+                "nanosecondsPerOperation": 682.0907544974514
+              },
+              {
+                "round": 4,
+                "operations": 145249,
+                "elapsedMs": 107.85710000000108,
+                "nanosecondsPerOperation": 742.5669023538964
+              },
+              {
+                "round": 5,
+                "operations": 145249,
+                "elapsedMs": 118.73570000000109,
+                "nanosecondsPerOperation": 817.463115064483
+              },
+              {
+                "round": 6,
+                "operations": 145249,
+                "elapsedMs": 98.40529999999853,
+                "nanosecondsPerOperation": 677.493820955728
+              },
+              {
+                "round": 7,
+                "operations": 145249,
+                "elapsedMs": 108.08929999999964,
+                "nanosecondsPerOperation": 744.1655364236562
+              }
+            ]
+          }
+        }
+      ],
+      "checksum": 452362401,
+      "limitation": "Local matcher fixtures; identical control drift is reported. No HTTP capacity or universal speed claim."
+    },
+    {
+      "date": "2026-10-18T03:51:21.621Z",
+      "runtime": "deno-2.9.7",
+      "cpu": "Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+      "sourceSha256": "a8f2628cd983ff46de910af2090df3841fd44db7d54f794c4a08de1d8fed2c9f",
+      "rounds": 8,
+      "targetMilliseconds": 100,
+      "pathsPerCase": 1024,
+      "mode": "equivalent public matching outputs; all params consumed; no HTTP",
+      "rows": [
+        {
+          "name": "static",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 55.52104714107815,
+            "updated-source": 65.19035433730771,
+            "source-control": 67.73750242725087
+          },
+          "sourceVersusPublished": 0.8516757993644479,
+          "controlRatio": 1.0390724688619382,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 2098361,
+                "elapsedMs": 119.70439999999996,
+                "nanosecondsPerOperation": 57.04661876578909
+              },
+              {
+                "round": 1,
+                "operations": 2098361,
+                "elapsedMs": 115.6893,
+                "nanosecondsPerOperation": 55.13317298596381
+              },
+              {
+                "round": 2,
+                "operations": 2098361,
+                "elapsedMs": 116.50319999999988,
+                "nanosecondsPerOperation": 55.52104714107815
+              },
+              {
+                "round": 3,
+                "operations": 2098361,
+                "elapsedMs": 115.66489999999999,
+                "nanosecondsPerOperation": 55.12154486287154
+              },
+              {
+                "round": 4,
+                "operations": 2098361,
+                "elapsedMs": 115.1522,
+                "nanosecondsPerOperation": 54.87721130920752
+              },
+              {
+                "round": 5,
+                "operations": 2098361,
+                "elapsedMs": 116.09930000000031,
+                "nanosecondsPerOperation": 55.32856357890768
+              },
+              {
+                "round": 6,
+                "operations": 2098361,
+                "elapsedMs": 117.74850000000015,
+                "nanosecondsPerOperation": 56.11451032496322
+              },
+              {
+                "round": 7,
+                "operations": 2098361,
+                "elapsedMs": 126.17549999999983,
+                "nanosecondsPerOperation": 60.130501853589465
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 894910,
+                "elapsedMs": 57.52800000000002,
+                "nanosecondsPerOperation": 64.28355924059404
+              },
+              {
+                "round": 1,
+                "operations": 894910,
+                "elapsedMs": 57.540700000000015,
+                "nanosecondsPerOperation": 64.29775061179338
+              },
+              {
+                "round": 2,
+                "operations": 894910,
+                "elapsedMs": 57.98219999999992,
+                "nanosecondsPerOperation": 64.79109631136083
+              },
+              {
+                "round": 3,
+                "operations": 894910,
+                "elapsedMs": 57.26780000000008,
+                "nanosecondsPerOperation": 63.992803745628144
+              },
+              {
+                "round": 4,
+                "operations": 894910,
+                "elapsedMs": 64.12249999999995,
+                "nanosecondsPerOperation": 71.65245667162056
+              },
+              {
+                "round": 5,
+                "operations": 894910,
+                "elapsedMs": 58.339500000000044,
+                "nanosecondsPerOperation": 65.19035433730771
+              },
+              {
+                "round": 6,
+                "operations": 894910,
+                "elapsedMs": 62.903299999999945,
+                "nanosecondsPerOperation": 70.29008503648406
+              },
+              {
+                "round": 7,
+                "operations": 894910,
+                "elapsedMs": 58.709299999999985,
+                "nanosecondsPerOperation": 65.60358024829311
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 1534658,
+                "elapsedMs": 103.95389999999998,
+                "nanosecondsPerOperation": 67.73750242725087
+              },
+              {
+                "round": 1,
+                "operations": 1534658,
+                "elapsedMs": 100.96500000000003,
+                "nanosecondsPerOperation": 65.78990237564332
+              },
+              {
+                "round": 2,
+                "operations": 1534658,
+                "elapsedMs": 104.08979999999997,
+                "nanosecondsPerOperation": 67.82605635913667
+              },
+              {
+                "round": 3,
+                "operations": 1534658,
+                "elapsedMs": 101.0335,
+                "nanosecondsPerOperation": 65.83453772762401
+              },
+              {
+                "round": 4,
+                "operations": 1534658,
+                "elapsedMs": 105.53819999999996,
+                "nanosecondsPerOperation": 68.76984969941182
+              },
+              {
+                "round": 5,
+                "operations": 1534658,
+                "elapsedMs": 101.42189999999982,
+                "nanosecondsPerOperation": 66.08762343140936
+              },
+              {
+                "round": 6,
+                "operations": 1534658,
+                "elapsedMs": 101.57580000000007,
+                "nanosecondsPerOperation": 66.1879063608961
+              },
+              {
+                "round": 7,
+                "operations": 1534658,
+                "elapsedMs": 130.3977,
+                "nanosecondsPerOperation": 84.96857280253971
+              }
+            ]
+          }
+        },
+        {
+          "name": "single-small",
+          "registrations": 1,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 428.6307093433806,
+            "updated-source": 419.877368702836,
+            "source-control": 416.9297685967501
+          },
+          "sourceVersusPublished": 1.020847374240691,
+          "controlRatio": 0.9929798547723775,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 210138,
+                "elapsedMs": 91.13749999999982,
+                "nanosecondsPerOperation": 433.70309035015
+              },
+              {
+                "round": 1,
+                "operations": 210138,
+                "elapsedMs": 93.42419999999993,
+                "nanosecondsPerOperation": 444.58498700853687
+              },
+              {
+                "round": 2,
+                "operations": 210138,
+                "elapsedMs": 89.10289999999986,
+                "nanosecondsPerOperation": 424.0208815159555
+              },
+              {
+                "round": 3,
+                "operations": 210138,
+                "elapsedMs": 89.26059999999961,
+                "nanosecondsPerOperation": 424.77134073798936
+              },
+              {
+                "round": 4,
+                "operations": 210138,
+                "elapsedMs": 90.07159999999931,
+                "nanosecondsPerOperation": 428.6307093433806
+              },
+              {
+                "round": 5,
+                "operations": 210138,
+                "elapsedMs": 89.35909999999967,
+                "nanosecondsPerOperation": 425.24008032816374
+              },
+              {
+                "round": 6,
+                "operations": 210138,
+                "elapsedMs": 90.2520999999997,
+                "nanosecondsPerOperation": 429.4896686939045
+              },
+              {
+                "round": 7,
+                "operations": 210138,
+                "elapsedMs": 89.2521999999999,
+                "nanosecondsPerOperation": 424.7313670064429
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 255889,
+                "elapsedMs": 107.4448999999995,
+                "nanosecondsPerOperation": 419.8887017417689
+              },
+              {
+                "round": 1,
+                "operations": 255889,
+                "elapsedMs": 110.22689999999966,
+                "nanosecondsPerOperation": 430.76060323030555
+              },
+              {
+                "round": 2,
+                "operations": 255889,
+                "elapsedMs": 106.17490000000043,
+                "nanosecondsPerOperation": 414.9256122772
+              },
+              {
+                "round": 3,
+                "operations": 255889,
+                "elapsedMs": 107.44200000000001,
+                "nanosecondsPerOperation": 419.877368702836
+              },
+              {
+                "round": 4,
+                "operations": 255889,
+                "elapsedMs": 105.73829999999998,
+                "nanosecondsPerOperation": 413.2194037258342
+              },
+              {
+                "round": 5,
+                "operations": 255889,
+                "elapsedMs": 105.1869999999999,
+                "nanosecondsPerOperation": 411.0649539448741
+              },
+              {
+                "round": 6,
+                "operations": 255889,
+                "elapsedMs": 106.97949999999946,
+                "nanosecondsPerOperation": 418.06994438994826
+              },
+              {
+                "round": 7,
+                "operations": 255889,
+                "elapsedMs": 110.6885000000002,
+                "nanosecondsPerOperation": 432.5645103931791
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 231976,
+                "elapsedMs": 95.82690000000002,
+                "nanosecondsPerOperation": 413.08971617753576
+              },
+              {
+                "round": 1,
+                "operations": 231976,
+                "elapsedMs": 96.7176999999997,
+                "nanosecondsPerOperation": 416.9297685967501
+              },
+              {
+                "round": 2,
+                "operations": 231976,
+                "elapsedMs": 95.52219999999988,
+                "nanosecondsPerOperation": 411.7762182294715
+              },
+              {
+                "round": 3,
+                "operations": 231976,
+                "elapsedMs": 99.5569000000005,
+                "nanosecondsPerOperation": 429.16896575508025
+              },
+              {
+                "round": 4,
+                "operations": 231976,
+                "elapsedMs": 97.30499999999938,
+                "nanosecondsPerOperation": 419.46149601682663
+              },
+              {
+                "round": 5,
+                "operations": 231976,
+                "elapsedMs": 97.89399999999932,
+                "nanosecondsPerOperation": 422.00055178121585
+              },
+              {
+                "round": 6,
+                "operations": 231976,
+                "elapsedMs": 95.83340000000044,
+                "nanosecondsPerOperation": 413.11773631755193
+              },
+              {
+                "round": 7,
+                "operations": 231976,
+                "elapsedMs": 96.47129999999925,
+                "nanosecondsPerOperation": 415.8675897506606
+              }
+            ]
+          }
+        },
+        {
+          "name": "single-large",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 679.3791574279368,
+            "updated-source": 669.9816403468078,
+            "source-control": 711.0484232551188
+          },
+          "sourceVersusPublished": 1.014026529258719,
+          "controlRatio": 1.0612953854781055,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 161007,
+                "elapsedMs": 109.38479999999981,
+                "nanosecondsPerOperation": 679.3791574279368
+              },
+              {
+                "round": 1,
+                "operations": 161007,
+                "elapsedMs": 106.10890000000018,
+                "nanosecondsPerOperation": 659.0328370816187
+              },
+              {
+                "round": 2,
+                "operations": 161007,
+                "elapsedMs": 109.34839999999986,
+                "nanosecondsPerOperation": 679.1530803008555
+              },
+              {
+                "round": 3,
+                "operations": 161007,
+                "elapsedMs": 112.20329999999922,
+                "nanosecondsPerOperation": 696.8846075015323
+              },
+              {
+                "round": 4,
+                "operations": 161007,
+                "elapsedMs": 137.6876999999995,
+                "nanosecondsPerOperation": 855.1659244629084
+              },
+              {
+                "round": 5,
+                "operations": 161007,
+                "elapsedMs": 109.17879999999968,
+                "nanosecondsPerOperation": 678.0997099504971
+              },
+              {
+                "round": 6,
+                "operations": 161007,
+                "elapsedMs": 104.7573999999995,
+                "nanosecondsPerOperation": 650.6387921022036
+              },
+              {
+                "round": 7,
+                "operations": 161007,
+                "elapsedMs": 111.57810000000063,
+                "nanosecondsPerOperation": 693.001546516615
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 153053,
+                "elapsedMs": 99.66550000000007,
+                "nanosecondsPerOperation": 651.1829235624265
+              },
+              {
+                "round": 1,
+                "operations": 153053,
+                "elapsedMs": 102.32569999999942,
+                "nanosecondsPerOperation": 668.5638308298395
+              },
+              {
+                "round": 2,
+                "operations": 153053,
+                "elapsedMs": 102.54269999999997,
+                "nanosecondsPerOperation": 669.9816403468078
+              },
+              {
+                "round": 3,
+                "operations": 153053,
+                "elapsedMs": 103.28949999999986,
+                "nanosecondsPerOperation": 674.8609958641769
+              },
+              {
+                "round": 4,
+                "operations": 153053,
+                "elapsedMs": 107.28510000000006,
+                "nanosecondsPerOperation": 700.9669852926768
+              },
+              {
+                "round": 5,
+                "operations": 153053,
+                "elapsedMs": 102.26540000000023,
+                "nanosecondsPerOperation": 668.1698496599232
+              },
+              {
+                "round": 6,
+                "operations": 153053,
+                "elapsedMs": 100.4435999999987,
+                "nanosecondsPerOperation": 656.2667834018196
+              },
+              {
+                "round": 7,
+                "operations": 153053,
+                "elapsedMs": 103.63970000000154,
+                "nanosecondsPerOperation": 677.1490921445612
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 160584,
+                "elapsedMs": 122.35699999999997,
+                "nanosecondsPerOperation": 761.9501320181337
+              },
+              {
+                "round": 1,
+                "operations": 160584,
+                "elapsedMs": 110.17239999999947,
+                "nanosecondsPerOperation": 686.0733323369667
+              },
+              {
+                "round": 2,
+                "operations": 160584,
+                "elapsedMs": 111.75960000000032,
+                "nanosecondsPerOperation": 695.9572560155452
+              },
+              {
+                "round": 3,
+                "operations": 160584,
+                "elapsedMs": 114.18299999999999,
+                "nanosecondsPerOperation": 711.0484232551188
+              },
+              {
+                "round": 4,
+                "operations": 160584,
+                "elapsedMs": 108.02530000000024,
+                "nanosecondsPerOperation": 672.7027599262706
+              },
+              {
+                "round": 5,
+                "operations": 160584,
+                "elapsedMs": 116.29109999999946,
+                "nanosecondsPerOperation": 724.1761321177668
+              },
+              {
+                "round": 6,
+                "operations": 160584,
+                "elapsedMs": 117.07179999999971,
+                "nanosecondsPerOperation": 729.0377621680847
+              },
+              {
+                "round": 7,
+                "operations": 160584,
+                "elapsedMs": 111.55899999999929,
+                "nanosecondsPerOperation": 694.708065560699
+              }
+            ]
+          }
+        },
+        {
+          "name": "deep",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 1190.8253776435126,
+            "updated-source": 1201.835917047955,
+            "source-control": 1172.6745014706546
+          },
+          "sourceVersusPublished": 0.990838566855709,
+          "controlRatio": 0.9757359426826508,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 82750,
+                "elapsedMs": 98.15840000000026,
+                "nanosecondsPerOperation": 1186.2042296072539
+              },
+              {
+                "round": 1,
+                "operations": 82750,
+                "elapsedMs": 96.56029999999919,
+                "nanosecondsPerOperation": 1166.8918429002924
+              },
+              {
+                "round": 2,
+                "operations": 82750,
+                "elapsedMs": 102.2604999999985,
+                "nanosecondsPerOperation": 1235.776435045299
+              },
+              {
+                "round": 3,
+                "operations": 82750,
+                "elapsedMs": 95.39899999999943,
+                "nanosecondsPerOperation": 1152.8580060422892
+              },
+              {
+                "round": 4,
+                "operations": 82750,
+                "elapsedMs": 100.79520000000048,
+                "nanosecondsPerOperation": 1218.0688821752324
+              },
+              {
+                "round": 5,
+                "operations": 82750,
+                "elapsedMs": 98.54869999999937,
+                "nanosecondsPerOperation": 1190.9208459214426
+              },
+              {
+                "round": 6,
+                "operations": 82750,
+                "elapsedMs": 97.67040000000088,
+                "nanosecondsPerOperation": 1180.306948640494
+              },
+              {
+                "round": 7,
+                "operations": 82750,
+                "elapsedMs": 98.54080000000067,
+                "nanosecondsPerOperation": 1190.8253776435126
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 87858,
+                "elapsedMs": 105.23639999999978,
+                "nanosecondsPerOperation": 1197.8009970634407
+              },
+              {
+                "round": 1,
+                "operations": 87858,
+                "elapsedMs": 104.52350000000115,
+                "nanosecondsPerOperation": 1189.6867672835842
+              },
+              {
+                "round": 2,
+                "operations": 87858,
+                "elapsedMs": 106.47310000000107,
+                "nanosecondsPerOperation": 1211.8771198980294
+              },
+              {
+                "round": 3,
+                "operations": 87858,
+                "elapsedMs": 112.33909999999923,
+                "nanosecondsPerOperation": 1278.6439481891148
+              },
+              {
+                "round": 4,
+                "operations": 87858,
+                "elapsedMs": 100.54910000000018,
+                "nanosecondsPerOperation": 1144.450135445835
+              },
+              {
+                "round": 5,
+                "operations": 87858,
+                "elapsedMs": 105.31580000000031,
+                "nanosecondsPerOperation": 1198.7047280839572
+              },
+              {
+                "round": 6,
+                "operations": 87858,
+                "elapsedMs": 108.76269999999931,
+                "nanosecondsPerOperation": 1237.9373534567064
+              },
+              {
+                "round": 7,
+                "operations": 87858,
+                "elapsedMs": 105.59089999999924,
+                "nanosecondsPerOperation": 1201.835917047955
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 77177,
+                "elapsedMs": 89.89220000000023,
+                "nanosecondsPerOperation": 1164.7537478782567
+              },
+              {
+                "round": 1,
+                "operations": 77177,
+                "elapsedMs": 94.0062999999991,
+                "nanosecondsPerOperation": 1218.061080373675
+              },
+              {
+                "round": 2,
+                "operations": 77177,
+                "elapsedMs": 89.14199999999983,
+                "nanosecondsPerOperation": 1155.0332352903044
+              },
+              {
+                "round": 3,
+                "operations": 77177,
+                "elapsedMs": 90.50350000000071,
+                "nanosecondsPerOperation": 1172.6745014706546
+              },
+              {
+                "round": 4,
+                "operations": 77177,
+                "elapsedMs": 92.54929999999877,
+                "nanosecondsPerOperation": 1199.182398901211
+              },
+              {
+                "round": 5,
+                "operations": 77177,
+                "elapsedMs": 88.691499999999,
+                "nanosecondsPerOperation": 1149.1960039908133
+              },
+              {
+                "round": 6,
+                "operations": 77177,
+                "elapsedMs": 96.54339999999866,
+                "nanosecondsPerOperation": 1250.9348640138728
+              },
+              {
+                "round": 7,
+                "operations": 77177,
+                "elapsedMs": 90.23220000000038,
+                "nanosecondsPerOperation": 1169.1592054627722
+              }
+            ]
+          }
+        },
+        {
+          "name": "deep-no-params",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 642.0044725818173,
+            "updated-source": 605.024591253488,
+            "source-control": 597.0000742555887
+          },
+          "sourceVersusPublished": 1.0611212864120356,
+          "controlRatio": 0.9867368746429396,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 190494,
+                "elapsedMs": 122.46810000000005,
+                "nanosecondsPerOperation": 642.8974140917827
+              },
+              {
+                "round": 1,
+                "operations": 190494,
+                "elapsedMs": 121.72019999999975,
+                "nanosecondsPerOperation": 638.9713061828705
+              },
+              {
+                "round": 2,
+                "operations": 190494,
+                "elapsedMs": 121.5650999999998,
+                "nanosecondsPerOperation": 638.1571073104654
+              },
+              {
+                "round": 3,
+                "operations": 190494,
+                "elapsedMs": 129.07719999999972,
+                "nanosecondsPerOperation": 677.5919451531267
+              },
+              {
+                "round": 4,
+                "operations": 190494,
+                "elapsedMs": 122.29800000000068,
+                "nanosecondsPerOperation": 642.0044725818173
+              },
+              {
+                "round": 5,
+                "operations": 190494,
+                "elapsedMs": 117.77260000000024,
+                "nanosecondsPerOperation": 618.2483437798578
+              },
+              {
+                "round": 6,
+                "operations": 190494,
+                "elapsedMs": 128.1141000000007,
+                "nanosecondsPerOperation": 672.5361428706452
+              },
+              {
+                "round": 7,
+                "operations": 190494,
+                "elapsedMs": 120.61340000000018,
+                "nanosecondsPerOperation": 633.161149432529
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 195598,
+                "elapsedMs": 123.95000000000073,
+                "nanosecondsPerOperation": 633.6976860704134
+              },
+              {
+                "round": 1,
+                "operations": 195598,
+                "elapsedMs": 124.52909999999974,
+                "nanosecondsPerOperation": 636.658350289879
+              },
+              {
+                "round": 2,
+                "operations": 195598,
+                "elapsedMs": 116.58380000000034,
+                "nanosecondsPerOperation": 596.0377917974639
+              },
+              {
+                "round": 3,
+                "operations": 195598,
+                "elapsedMs": 119.19760000000133,
+                "nanosecondsPerOperation": 609.400914119783
+              },
+              {
+                "round": 4,
+                "operations": 195598,
+                "elapsedMs": 118.34159999999974,
+                "nanosecondsPerOperation": 605.024591253488
+              },
+              {
+                "round": 5,
+                "operations": 195598,
+                "elapsedMs": 115.39800000000105,
+                "nanosecondsPerOperation": 589.9753576212489
+              },
+              {
+                "round": 6,
+                "operations": 195598,
+                "elapsedMs": 112.73410000000149,
+                "nanosecondsPerOperation": 576.3560977106182
+              },
+              {
+                "round": 7,
+                "operations": 195598,
+                "elapsedMs": 117.3140000000003,
+                "nanosecondsPerOperation": 599.7709588032614
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 161604,
+                "elapsedMs": 94.95269999999982,
+                "nanosecondsPerOperation": 587.5640454444186
+              },
+              {
+                "round": 1,
+                "operations": 161604,
+                "elapsedMs": 102.8752999999997,
+                "nanosecondsPerOperation": 636.5888220588581
+              },
+              {
+                "round": 2,
+                "operations": 161604,
+                "elapsedMs": 96.47760000000017,
+                "nanosecondsPerOperation": 597.0000742555887
+              },
+              {
+                "round": 3,
+                "operations": 161604,
+                "elapsedMs": 93.97350000000006,
+                "nanosecondsPerOperation": 581.5047894854091
+              },
+              {
+                "round": 4,
+                "operations": 161604,
+                "elapsedMs": 103.90740000000005,
+                "nanosecondsPerOperation": 642.9754214004607
+              },
+              {
+                "round": 5,
+                "operations": 161604,
+                "elapsedMs": 99.53490000000056,
+                "nanosecondsPerOperation": 615.9185416202604
+              },
+              {
+                "round": 6,
+                "operations": 161604,
+                "elapsedMs": 93.96509999999944,
+                "nanosecondsPerOperation": 581.4528105739922
+              },
+              {
+                "round": 7,
+                "operations": 161604,
+                "elapsedMs": 95.86379999999917,
+                "nanosecondsPerOperation": 593.2019009430409
+              }
+            ]
+          }
+        },
+        {
+          "name": "late-miss",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 697.557024441586,
+            "updated-source": 416.5148317738422,
+            "source-control": 429.6080246785414
+          },
+          "sourceVersusPublished": 1.6747471427868459,
+          "controlRatio": 1.0314351180459487,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 169138,
+                "elapsedMs": 115.03070000000116,
+                "nanosecondsPerOperation": 680.0996819165484
+              },
+              {
+                "round": 1,
+                "operations": 169138,
+                "elapsedMs": 115.50879999999961,
+                "nanosecondsPerOperation": 682.9263678179925
+              },
+              {
+                "round": 2,
+                "operations": 169138,
+                "elapsedMs": 130.88420000000042,
+                "nanosecondsPerOperation": 773.830836358479
+              },
+              {
+                "round": 3,
+                "operations": 169138,
+                "elapsedMs": 115.67669999999998,
+                "nanosecondsPerOperation": 683.9190483510505
+              },
+              {
+                "round": 4,
+                "operations": 169138,
+                "elapsedMs": 127.04929999999877,
+                "nanosecondsPerOperation": 751.1576345942293
+              },
+              {
+                "round": 5,
+                "operations": 169138,
+                "elapsedMs": 117.0589,
+                "nanosecondsPerOperation": 692.091073561234
+              },
+              {
+                "round": 6,
+                "operations": 169138,
+                "elapsedMs": 117.98340000000098,
+                "nanosecondsPerOperation": 697.557024441586
+              },
+              {
+                "round": 7,
+                "operations": 169138,
+                "elapsedMs": 121.85450000000128,
+                "nanosecondsPerOperation": 720.4442526221268
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 251150,
+                "elapsedMs": 104.60770000000048,
+                "nanosecondsPerOperation": 416.5148317738422
+              },
+              {
+                "round": 1,
+                "operations": 251150,
+                "elapsedMs": 106.10150000000067,
+                "nanosecondsPerOperation": 422.4626717101361
+              },
+              {
+                "round": 2,
+                "operations": 251150,
+                "elapsedMs": 123.10870000000068,
+                "nanosecondsPerOperation": 490.17997212821297
+              },
+              {
+                "round": 3,
+                "operations": 251150,
+                "elapsedMs": 103.66059999999925,
+                "nanosecondsPerOperation": 412.7437786183526
+              },
+              {
+                "round": 4,
+                "operations": 251150,
+                "elapsedMs": 105.20279999999912,
+                "nanosecondsPerOperation": 418.88433207246317
+              },
+              {
+                "round": 5,
+                "operations": 251150,
+                "elapsedMs": 102.83009999999922,
+                "nanosecondsPerOperation": 409.4369898467021
+              },
+              {
+                "round": 6,
+                "operations": 251150,
+                "elapsedMs": 104.28729999999996,
+                "nanosecondsPerOperation": 415.23910013935875
+              },
+              {
+                "round": 7,
+                "operations": 251150,
+                "elapsedMs": 102.50370000000112,
+                "nanosecondsPerOperation": 408.1373681067136
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 240857,
+                "elapsedMs": 101.66929999999957,
+                "nanosecondsPerOperation": 422.1147817999874
+              },
+              {
+                "round": 1,
+                "operations": 240857,
+                "elapsedMs": 102.81990000000042,
+                "nanosecondsPerOperation": 426.8918902087148
+              },
+              {
+                "round": 2,
+                "operations": 240857,
+                "elapsedMs": 102.43009999999958,
+                "nanosecondsPerOperation": 425.2735025346973
+              },
+              {
+                "round": 3,
+                "operations": 240857,
+                "elapsedMs": 110.6851999999999,
+                "nanosecondsPerOperation": 459.54736627957624
+              },
+              {
+                "round": 4,
+                "operations": 240857,
+                "elapsedMs": 108.99249999999665,
+                "nanosecondsPerOperation": 452.5195447921242
+              },
+              {
+                "round": 5,
+                "operations": 240857,
+                "elapsedMs": 103.47409999999945,
+                "nanosecondsPerOperation": 429.6080246785414
+              },
+              {
+                "round": 6,
+                "operations": 240857,
+                "elapsedMs": 108.56999999999971,
+                "nanosecondsPerOperation": 450.7653919130426
+              },
+              {
+                "round": 7,
+                "operations": 240857,
+                "elapsedMs": 98.99209999999948,
+                "nanosecondsPerOperation": 410.99947271617384
+              }
+            ]
+          }
+        },
+        {
+          "name": "shared-prefix",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 4911.69339798589,
+            "updated-source": 4897.30140817431,
+            "source-control": 4958.491185296386
+          },
+          "sourceVersusPublished": 1.0029387592496466,
+          "controlRatio": 1.012494590800546,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 21448,
+                "elapsedMs": 100.68359999999666,
+                "nanosecondsPerOperation": 4694.311823946133
+              },
+              {
+                "round": 1,
+                "operations": 21448,
+                "elapsedMs": 107.8747000000003,
+                "nanosecondsPerOperation": 5029.592502797477
+              },
+              {
+                "round": 2,
+                "operations": 21448,
+                "elapsedMs": 105.34600000000137,
+                "nanosecondsPerOperation": 4911.69339798589
+              },
+              {
+                "round": 3,
+                "operations": 21448,
+                "elapsedMs": 105.56630000000223,
+                "nanosecondsPerOperation": 4921.964751958329
+              },
+              {
+                "round": 4,
+                "operations": 21448,
+                "elapsedMs": 102.9343000000008,
+                "nanosecondsPerOperation": 4799.249347258523
+              },
+              {
+                "round": 5,
+                "operations": 21448,
+                "elapsedMs": 104.89420000000246,
+                "nanosecondsPerOperation": 4890.628496829656
+              },
+              {
+                "round": 6,
+                "operations": 21448,
+                "elapsedMs": 105.01469999999972,
+                "nanosecondsPerOperation": 4896.246736292415
+              },
+              {
+                "round": 7,
+                "operations": 21448,
+                "elapsedMs": 113.50350000000253,
+                "nanosecondsPerOperation": 5292.031891085534
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 20381,
+                "elapsedMs": 102.4877000000015,
+                "nanosecondsPerOperation": 5028.590353760929
+              },
+              {
+                "round": 1,
+                "operations": 20381,
+                "elapsedMs": 98.8279999999977,
+                "nanosecondsPerOperation": 4849.026053677332
+              },
+              {
+                "round": 2,
+                "operations": 20381,
+                "elapsedMs": 106.08559999999852,
+                "nanosecondsPerOperation": 5205.122417938203
+              },
+              {
+                "round": 3,
+                "operations": 20381,
+                "elapsedMs": 99.8119000000006,
+                "nanosecondsPerOperation": 4897.30140817431
+              },
+              {
+                "round": 4,
+                "operations": 20381,
+                "elapsedMs": 98.22609999999986,
+                "nanosecondsPerOperation": 4819.493646042876
+              },
+              {
+                "round": 5,
+                "operations": 20381,
+                "elapsedMs": 94.74860000000263,
+                "nanosecondsPerOperation": 4648.869044698622
+              },
+              {
+                "round": 6,
+                "operations": 20381,
+                "elapsedMs": 105.36739999999918,
+                "nanosecondsPerOperation": 5169.883715224924
+              },
+              {
+                "round": 7,
+                "operations": 20381,
+                "elapsedMs": 98.60680000000139,
+                "nanosecondsPerOperation": 4838.172808007526
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 21328,
+                "elapsedMs": 106.26719999999841,
+                "nanosecondsPerOperation": 4982.520630157464
+              },
+              {
+                "round": 1,
+                "operations": 21328,
+                "elapsedMs": 104.96949999999924,
+                "nanosecondsPerOperation": 4921.675731432822
+              },
+              {
+                "round": 2,
+                "operations": 21328,
+                "elapsedMs": 103.53870000000097,
+                "nanosecondsPerOperation": 4854.590210052558
+              },
+              {
+                "round": 3,
+                "operations": 21328,
+                "elapsedMs": 100.9356000000007,
+                "nanosecondsPerOperation": 4732.5393848462445
+              },
+              {
+                "round": 4,
+                "operations": 21328,
+                "elapsedMs": 108.64280000000144,
+                "nanosecondsPerOperation": 5093.904726181613
+              },
+              {
+                "round": 5,
+                "operations": 21328,
+                "elapsedMs": 111.0099999999984,
+                "nanosecondsPerOperation": 5204.894973743361
+              },
+              {
+                "round": 6,
+                "operations": 21328,
+                "elapsedMs": 102.84449999999924,
+                "nanosecondsPerOperation": 4822.04144786193
+              },
+              {
+                "round": 7,
+                "operations": 21328,
+                "elapsedMs": 105.75470000000132,
+                "nanosecondsPerOperation": 4958.491185296386
+              }
+            ]
+          }
+        },
+        {
+          "name": "constraint",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 1017.5053616689463,
+            "updated-source": 1056.895743368257,
+            "source-control": 1097.5409647691754
+          },
+          "sourceVersusPublished": 0.9627301160530971,
+          "controlRatio": 1.0384571720114841,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 102580,
+                "elapsedMs": 116.40300000000207,
+                "nanosecondsPerOperation": 1134.7533632287198
+              },
+              {
+                "round": 1,
+                "operations": 102580,
+                "elapsedMs": 104.84270000000106,
+                "nanosecondsPerOperation": 1022.0579060245765
+              },
+              {
+                "round": 2,
+                "operations": 102580,
+                "elapsedMs": 104.29449999999997,
+                "nanosecondsPerOperation": 1016.7137843634234
+              },
+              {
+                "round": 3,
+                "operations": 102580,
+                "elapsedMs": 103.23180000000139,
+                "nanosecondsPerOperation": 1006.3540651199199
+              },
+              {
+                "round": 4,
+                "operations": 102580,
+                "elapsedMs": 103.40590000000157,
+                "nanosecondsPerOperation": 1008.0512770520722
+              },
+              {
+                "round": 5,
+                "operations": 102580,
+                "elapsedMs": 104.3757000000005,
+                "nanosecondsPerOperation": 1017.5053616689463
+              },
+              {
+                "round": 6,
+                "operations": 102580,
+                "elapsedMs": 104.59739999999874,
+                "nanosecondsPerOperation": 1019.6666016767279
+              },
+              {
+                "round": 7,
+                "operations": 102580,
+                "elapsedMs": 102.60280000000057,
+                "nanosecondsPerOperation": 1000.2222655488455
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 81050,
+                "elapsedMs": 85.66139999999723,
+                "nanosecondsPerOperation": 1056.895743368257
+              },
+              {
+                "round": 1,
+                "operations": 81050,
+                "elapsedMs": 83.56079999999929,
+                "nanosecondsPerOperation": 1030.978408389874
+              },
+              {
+                "round": 2,
+                "operations": 81050,
+                "elapsedMs": 88.16630000000077,
+                "nanosecondsPerOperation": 1087.8013571869312
+              },
+              {
+                "round": 3,
+                "operations": 81050,
+                "elapsedMs": 82.8101999999999,
+                "nanosecondsPerOperation": 1021.7174583590363
+              },
+              {
+                "round": 4,
+                "operations": 81050,
+                "elapsedMs": 82.8804999999993,
+                "nanosecondsPerOperation": 1022.5848241825947
+              },
+              {
+                "round": 5,
+                "operations": 81050,
+                "elapsedMs": 84.0157999999974,
+                "nanosecondsPerOperation": 1036.5922270203257
+              },
+              {
+                "round": 6,
+                "operations": 81050,
+                "elapsedMs": 89.28510000000097,
+                "nanosecondsPerOperation": 1101.6051819864401
+              },
+              {
+                "round": 7,
+                "operations": 81050,
+                "elapsedMs": 85.77760000000126,
+                "nanosecondsPerOperation": 1058.3294262800894
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 43513,
+                "elapsedMs": 44.028699999998935,
+                "nanosecondsPerOperation": 1011.8516305471683
+              },
+              {
+                "round": 1,
+                "operations": 43513,
+                "elapsedMs": 44.73229999999967,
+                "nanosecondsPerOperation": 1028.0215108128527
+              },
+              {
+                "round": 2,
+                "operations": 43513,
+                "elapsedMs": 48.265800000001036,
+                "nanosecondsPerOperation": 1109.2271275251312
+              },
+              {
+                "round": 3,
+                "operations": 43513,
+                "elapsedMs": 53.5044999999991,
+                "nanosecondsPerOperation": 1229.6210327947763
+              },
+              {
+                "round": 4,
+                "operations": 43513,
+                "elapsedMs": 49.14770000000135,
+                "nanosecondsPerOperation": 1129.4946337876347
+              },
+              {
+                "round": 5,
+                "operations": 43513,
+                "elapsedMs": 46.18260000000009,
+                "nanosecondsPerOperation": 1061.3517799278397
+              },
+              {
+                "round": 6,
+                "operations": 43513,
+                "elapsedMs": 47.75730000000112,
+                "nanosecondsPerOperation": 1097.5409647691754
+              },
+              {
+                "round": 7,
+                "operations": 43513,
+                "elapsedMs": 45.66699999999764,
+                "nanosecondsPerOperation": 1049.502447544358
+              }
+            ]
+          }
+        },
+        {
+          "name": "multi-capture",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 1337.6236554494749,
+            "updated-source": 1448.3089336903956,
+            "source-control": 1466.559476215305
+          },
+          "sourceVersusPublished": 0.9235761958887552,
+          "controlRatio": 1.0126012773244488,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 46298,
+                "elapsedMs": 61.67059999999765,
+                "nanosecondsPerOperation": 1332.0359410773176
+              },
+              {
+                "round": 1,
+                "operations": 46298,
+                "elapsedMs": 61.814399999999296,
+                "nanosecondsPerOperation": 1335.1419067778154
+              },
+              {
+                "round": 2,
+                "operations": 46298,
+                "elapsedMs": 65.4217000000026,
+                "nanosecondsPerOperation": 1413.056719512778
+              },
+              {
+                "round": 3,
+                "operations": 46298,
+                "elapsedMs": 61.927199999998265,
+                "nanosecondsPerOperation": 1337.5782971186286
+              },
+              {
+                "round": 4,
+                "operations": 46298,
+                "elapsedMs": 61.929299999999785,
+                "nanosecondsPerOperation": 1337.6236554494749
+              },
+              {
+                "round": 5,
+                "operations": 46298,
+                "elapsedMs": 63.130799999999,
+                "nanosecondsPerOperation": 1363.5751004362824
+              },
+              {
+                "round": 6,
+                "operations": 46298,
+                "elapsedMs": 61.278299999998126,
+                "nanosecondsPerOperation": 1323.5625728972768
+              },
+              {
+                "round": 7,
+                "operations": 46298,
+                "elapsedMs": 64.1929999999993,
+                "nanosecondsPerOperation": 1386.5177761458226
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 84769,
+                "elapsedMs": 123.21809999999823,
+                "nanosecondsPerOperation": 1453.5750097323105
+              },
+              {
+                "round": 1,
+                "operations": 84769,
+                "elapsedMs": 120.95699999999852,
+                "nanosecondsPerOperation": 1426.9013436515531
+              },
+              {
+                "round": 2,
+                "operations": 84769,
+                "elapsedMs": 121.20219999999972,
+                "nanosecondsPerOperation": 1429.7939105097348
+              },
+              {
+                "round": 3,
+                "operations": 84769,
+                "elapsedMs": 125.7439000000013,
+                "nanosecondsPerOperation": 1483.3712795951506
+              },
+              {
+                "round": 4,
+                "operations": 84769,
+                "elapsedMs": 121.42420000000129,
+                "nanosecondsPerOperation": 1432.4127924123359
+              },
+              {
+                "round": 5,
+                "operations": 84769,
+                "elapsedMs": 119.20550000000003,
+                "nanosecondsPerOperation": 1406.2393091814229
+              },
+              {
+                "round": 6,
+                "operations": 84769,
+                "elapsedMs": 123.46299999999974,
+                "nanosecondsPerOperation": 1456.4640375608976
+              },
+              {
+                "round": 7,
+                "operations": 84769,
+                "elapsedMs": 122.77170000000115,
+                "nanosecondsPerOperation": 1448.3089336903956
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 69036,
+                "elapsedMs": 102.34339999999793,
+                "nanosecondsPerOperation": 1482.46422156553
+              },
+              {
+                "round": 1,
+                "operations": 69036,
+                "elapsedMs": 99.80419999999867,
+                "nanosecondsPerOperation": 1445.6834115533732
+              },
+              {
+                "round": 2,
+                "operations": 69036,
+                "elapsedMs": 97.48990000000049,
+                "nanosecondsPerOperation": 1412.160322150769
+              },
+              {
+                "round": 3,
+                "operations": 69036,
+                "elapsedMs": 101.46619999999893,
+                "nanosecondsPerOperation": 1469.7578075206984
+              },
+              {
+                "round": 4,
+                "operations": 69036,
+                "elapsedMs": 102.1987999999983,
+                "nanosecondsPerOperation": 1480.3696622052016
+              },
+              {
+                "round": 5,
+                "operations": 69036,
+                "elapsedMs": 101.24539999999979,
+                "nanosecondsPerOperation": 1466.559476215305
+              },
+              {
+                "round": 6,
+                "operations": 69036,
+                "elapsedMs": 100.74380000000019,
+                "nanosecondsPerOperation": 1459.2937018367256
+              },
+              {
+                "round": 7,
+                "operations": 69036,
+                "elapsedMs": 97.55219999999827,
+                "nanosecondsPerOperation": 1413.0627498696083
+              }
+            ]
+          }
+        },
+        {
+          "name": "fallback-no-params",
+          "registrations": 1000,
+          "paths": 1024,
+          "medianNs": {
+            "published-0.1.1": 685.9855250138481,
+            "updated-source": 605.5917739555446,
+            "source-control": 608.690396568768
+          },
+          "sourceVersusPublished": 1.1327523829017616,
+          "controlRatio": 1.0051166854413893,
+          "controlDivergedOver10Percent": false,
+          "samples": {
+            "published-0.1.1": [
+              {
+                "round": 0,
+                "operations": 160691,
+                "elapsedMs": 110.37160000000222,
+                "nanosecondsPerOperation": 686.8561400451937
+              },
+              {
+                "round": 1,
+                "operations": 160691,
+                "elapsedMs": 109.24279999999999,
+                "nanosecondsPerOperation": 679.8314778052286
+              },
+              {
+                "round": 2,
+                "operations": 160691,
+                "elapsedMs": 115.97639999999956,
+                "nanosecondsPerOperation": 721.7355047886911
+              },
+              {
+                "round": 3,
+                "operations": 160691,
+                "elapsedMs": 106.9989999999998,
+                "nanosecondsPerOperation": 665.8680324349203
+              },
+              {
+                "round": 4,
+                "operations": 160691,
+                "elapsedMs": 117.51569999999992,
+                "nanosecondsPerOperation": 731.3147593829145
+              },
+              {
+                "round": 5,
+                "operations": 160691,
+                "elapsedMs": 110.23170000000027,
+                "nanosecondsPerOperation": 685.9855250138481
+              },
+              {
+                "round": 6,
+                "operations": 160691,
+                "elapsedMs": 108.69830000000002,
+                "nanosecondsPerOperation": 676.4429868505393
+              },
+              {
+                "round": 7,
+                "operations": 160691,
+                "elapsedMs": 106.67450000000099,
+                "nanosecondsPerOperation": 663.8486287346583
+              }
+            ],
+            "updated-source": [
+              {
+                "round": 0,
+                "operations": 128081,
+                "elapsedMs": 84.21119999999792,
+                "nanosecondsPerOperation": 657.4839359467674
+              },
+              {
+                "round": 1,
+                "operations": 128081,
+                "elapsedMs": 77.5648000000001,
+                "nanosecondsPerOperation": 605.5917739555446
+              },
+              {
+                "round": 2,
+                "operations": 128081,
+                "elapsedMs": 76.85729999999967,
+                "nanosecondsPerOperation": 600.0679257657238
+              },
+              {
+                "round": 3,
+                "operations": 128081,
+                "elapsedMs": 74.4961000000003,
+                "nanosecondsPerOperation": 581.6327167964046
+              },
+              {
+                "round": 4,
+                "operations": 128081,
+                "elapsedMs": 78.4377999999997,
+                "nanosecondsPerOperation": 612.4077732060157
+              },
+              {
+                "round": 5,
+                "operations": 128081,
+                "elapsedMs": 81.27219999999943,
+                "nanosecondsPerOperation": 634.5375192261102
+              },
+              {
+                "round": 6,
+                "operations": 128081,
+                "elapsedMs": 75.08590000000186,
+                "nanosecondsPerOperation": 586.2376152591085
+              },
+              {
+                "round": 7,
+                "operations": 128081,
+                "elapsedMs": 77.45620000000054,
+                "nanosecondsPerOperation": 604.7438730178601
+              }
+            ],
+            "source-control": [
+              {
+                "round": 0,
+                "operations": 162973,
+                "elapsedMs": 98.38709999999992,
+                "nanosecondsPerOperation": 603.7018401821156
+              },
+              {
+                "round": 1,
+                "operations": 162973,
+                "elapsedMs": 97.6974999999984,
+                "nanosecondsPerOperation": 599.470464432749
+              },
+              {
+                "round": 2,
+                "operations": 162973,
+                "elapsedMs": 99.20010000000184,
+                "nanosecondsPerOperation": 608.690396568768
+              },
+              {
+                "round": 3,
+                "operations": 162973,
+                "elapsedMs": 103.20929999999862,
+                "nanosecondsPerOperation": 633.2907904990312
+              },
+              {
+                "round": 4,
+                "operations": 162973,
+                "elapsedMs": 98.66749999999956,
+                "nanosecondsPerOperation": 605.4223705767187
+              },
+              {
+                "round": 5,
+                "operations": 162973,
+                "elapsedMs": 99.88270000000193,
+                "nanosecondsPerOperation": 612.8788204181179
+              },
+              {
+                "round": 6,
+                "operations": 162973,
+                "elapsedMs": 97.32400000000052,
+                "nanosecondsPerOperation": 597.1786737680507
+              },
+              {
+                "round": 7,
+                "operations": 162973,
+                "elapsedMs": 103.37159999999858,
+                "nanosecondsPerOperation": 634.2866609806446
+              }
+            ]
+          }
+        }
+      ],
+      "checksum": 270156540,
+      "limitation": "Local matcher fixtures; identical control drift is reported. No HTTP capacity or universal speed claim."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { setImmediate as nextTurn } from "node:timers/promises";
-import { Router } from "../src/index.js";
+import { Router } from "./engine.js";
 
 if (typeof global.gc !== "function")
   throw new Error("Run with node --expose-gc test/memory.test.js");
@@ -55,9 +55,50 @@ function exercise(router, count) {
   for (let index = 0; index < count; index++) {
     const result = router.find("GET", "/users/u" + index + "/posts/p" + index);
     checksum += result.params.id.length + result.params.post.length;
+    const pair = router.find("GET", "/pairs/l" + index + ".r" + index);
+    checksum += pair.params.left.length + pair.params.right.length;
   }
   return checksum;
 }
+
+/**
+ * Keep emptied routers alive while checking payloads from every compiler path.
+ * @example const fixture = discardedCompilerCases(); fixture.references.length; // 12
+ */
+function discardedCompilerCases() {
+  const routers = [],
+    references = [];
+  const fixtures = [
+    ["/static", "/static"],
+    ["/shared/:id/end", "/shared/value/end"],
+    ["/pairs/:left.:right", "/pairs/left.right"],
+    ["/code/:id(\\d+)", "/code/42"],
+    ["/**:rest", "/nested/remainder"],
+    ["/files/*", "/files/value"],
+  ];
+  for (const strategy of ["hybrid", "segment"]) {
+    for (const [pattern, pathname] of fixtures) {
+      const router = new Router({ strategy });
+      for (let index = 0; index < 40; index++)
+        router.add("GET", "/shared/:id/r" + index, index);
+      const payload = { bytes: new Uint8Array(1024 * 1024), pattern };
+      references.push(new WeakRef(payload));
+      router.add("GET", pattern, payload).compile();
+      assert.equal(router.find("GET", pathname).data, payload);
+      router.clear().compile();
+      routers.push(router);
+    }
+  }
+  return { routers, references };
+}
+
+const discarded = discardedCompilerCases();
+for (const reference of discarded.references)
+  assert.equal(
+    await collected(reference),
+    true,
+    "An emptied compiler path retained route data",
+  );
 
 const removed = removedPayload();
 assert.equal(
@@ -89,7 +130,10 @@ captured = undefined;
 
 const router = new Router();
 for (let i = 0; i < 40; i++) router.add("GET", "/padding/r" + i + "/:id", i);
-router.add("GET", "/users/:id/posts/:post", "post").compile();
+router
+  .add("GET", "/users/:id/posts/:post", "post")
+  .add("GET", "/pairs/:left.:right", "pair")
+  .compile();
 exercise(router, 50_000);
 await nextTurn();
 global.gc();
@@ -118,8 +162,9 @@ assert.ok(
 console.log(
   JSON.stringify({
     removedPayloadCollected: true,
+    discardedCompilerPayloadsCollected: discarded.references.length,
     discardedSnapshotCollected: true,
-    distinctPathLookups: 250000,
+    distinctPathLookups: 500000,
     heapBefore: before,
     heapAfter: after,
     retainedGrowthBytes: growth,

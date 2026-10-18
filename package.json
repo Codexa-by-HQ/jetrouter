@@ -1,6 +1,6 @@
 {
   "name": "jetrouter",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A fast, zero-dependency HTTP routing engine.",
   "type": "module",
   "license": "MIT",
@@ -29,7 +29,6 @@
   },
   "publishConfig": {
     "access": "public",
-    "tag": "next",
     "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
@@ -46,11 +45,12 @@
     "test": "node test/run.js",
     "test:types": "tsc -p test/tsconfig.json",
     "test:source": "node test/source.test.js",
+    "test:security": "node test/security.test.js",
     "test:memory": "node --expose-gc test/memory.test.js",
+    "test:package": "node test/package.test.js",
     "format:check": "prettier --check src test package.json docs README.md .github",
     "format": "prettier --write src test package.json docs README.md .github",
-    "check": "npm test && npm run test:types && npm run test:source && npm run format:check",
-    "prepublishOnly": "npm run check && npm run test:memory"
+    "check": "npm test && npm run test:types && npm run test:source && npm run test:security && npm run format:check"
   },
   "devDependencies": {
     "prettier": "3.8.1",

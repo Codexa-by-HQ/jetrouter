@@ -1,5 +1,7 @@
-import { HYBRID, SEGMENT } from "./constants.js";
+/** Compile one prefix partition, retaining ordered fallback candidates. */
 import {
+  HYBRID,
+  SEGMENT,
   LITERAL,
   PARAMETER,
   SIMPLE_PARAMETER_SOURCE,
@@ -8,8 +10,7 @@ import {
 import { createLinearMatcher } from "./linear.js";
 import { matchSegments } from "./matcher.js";
 import { buildChunk } from "./regex.js";
-
-const MISS = undefined;
+import { normalizeParams } from "./lookup.js";
 
 /**
  * Compile one ordered prefix partition into bounded regex chunks, direct captures, suffix indexes, or isolated fallbacks. Single simple routes receive a linear literal/capture plan.
@@ -36,7 +37,7 @@ export function buildGroup(entries, options, stats) {
      * matchSingleRoute("/users/42", true); // data and { id: "42" }
      */
     function matchSingleRoute(path, wantParams) {
-      const params = matchSegments(entry.variant.segments, path);
+      const params = matchSegments(entry.variant.segments, path, wantParams);
       if (params === undefined) return;
       return wantParams
         ? {
@@ -63,45 +64,36 @@ export function buildGroup(entries, options, stats) {
   const tailByPrefix = new Map();
   for (const entry of entries) {
     const segments = entry.variant.segments;
-    const params = segments.filter(
-      /**
-       * Select only items satisfying this local compiler predicate. This callback contributes to buildGroup.
-       * @internal
-       * @example
-       * // Equivalent local callback inside buildGroup:
-       * (s) => s.kind !== LITERAL
-       */
-      (s) => s.kind !== LITERAL,
-    );
-    const parameterAt = segments.findIndex(
-      /**
-       * Compute this local parsing or compilation result. This callback contributes to buildGroup.
-       * @internal
-       * @example
-       * // Equivalent local callback inside buildGroup:
-       * (s) => s.kind !== LITERAL
-       */
-      (s) => s.kind !== LITERAL,
-    );
+    let parameterCount = 0,
+      parameterAt = -1,
+      parameter;
+    for (let index = 0; index < segments.length; index++) {
+      if (segments[index].kind === LITERAL) continue;
+      if (parameterCount === 0) {
+        parameterAt = index;
+        parameter = segments[index];
+      }
+      parameterCount++;
+    }
     if (
       options.strategy !== SEGMENT &&
       entry.variant.safe &&
-      params.length === 1 &&
-      params[0].kind === PARAMETER &&
-      params[0].source === SIMPLE_PARAMETER_SOURCE &&
+      parameterCount === 1 &&
+      parameter.kind === PARAMETER &&
+      parameter.source === SIMPLE_PARAMETER_SOURCE &&
       parameterAt === segments.length - 1
     ) {
       direct.push({
         entry,
         prefix: entry.variant.prefix,
-        name: params[0].captures[0].name,
+        name: parameter.captures[0].name,
       });
     } else if (
       options.strategy !== SEGMENT &&
       entry.variant.safe &&
-      params.length === 1 &&
-      params[0].kind === PARAMETER &&
-      params[0].source === SIMPLE_PARAMETER_SOURCE &&
+      parameterCount === 1 &&
+      parameter.kind === PARAMETER &&
+      parameter.source === SIMPLE_PARAMETER_SOURCE &&
       parameterAt < segments.length - 1
     ) {
       const prefix = entry.variant.prefix;
@@ -117,10 +109,9 @@ export function buildGroup(entries, options, stats) {
           .slice(parameterAt + 1)
           .map(
             /**
-             * Project each item into the metadata needed by the surrounding compiler step. This callback contributes to buildGroup.
+             * Read the literal text used in a pathname prefix or suffix index.
              * @internal
              * @example
-             * // Equivalent local callback inside buildGroup:
              * (s) => s.value
              */
             (s) => s.value,
@@ -130,7 +121,7 @@ export function buildGroup(entries, options, stats) {
         ? suffixValue
         : suffixValue.toLowerCase();
       if (!tail.suffixes[suffix])
-        tail.suffixes[suffix] = { entry, name: params[0].captures[0].name };
+        tail.suffixes[suffix] = { entry, name: parameter.captures[0].name };
     } else
       (entry.variant.safe && options.strategy !== SEGMENT
         ? ordinary
@@ -232,92 +223,4 @@ export function buildGroup(entries, options, stats) {
     fast,
     sensitive: options.caseSensitive,
   };
-}
-
-/**
- * Decode an owned parameter map only after route selection succeeds. Decoder exceptions propagate to the caller rather than being silently swallowed.
- * @internal
- * @example
- * normalizeParams({ id: "a%2Fb" }, decodeURIComponent);
- * // { id: "a/b" }
- */
-export function normalizeParams(params, decode) {
-  if (!decode) return params;
-  for (const name of Object.keys(params)) params[name] = decode(params[name]);
-  return params;
-}
-
-/**
- * Find a partition candidate that outranks the supplied priority bound. Direct, suffix, regex, and custom-constraint candidates are compared without bypassing specificity.
- * @internal
- * @example
- * lookupGroup(group, "/users/42", Infinity);
- * // A selected entry and its extraction metadata, or undefined.
- */
-export function lookupGroup(group, path, before) {
-  if (!group) return MISS;
-  let selected;
-  for (const match of group.direct) {
-    if (match.entry.priority >= before) break;
-    if (
-      path.length <= match.prefix.length ||
-      path.indexOf("/", match.prefix.length) !== -1
-    )
-      continue;
-    const prefixMatches = group.sensitive
-      ? path.startsWith(match.prefix)
-      : path.slice(0, match.prefix.length).toLowerCase() ===
-        match.prefix.toLowerCase();
-    if (prefixMatches) {
-      selected = {
-        entry: match.entry,
-        tail: {
-          name: match.name,
-          start: match.prefix.length,
-          end: path.length,
-        },
-      };
-      before = match.entry.priority;
-      break;
-    }
-  }
-  for (const tail of group.tails) {
-    const prefixMatches = group.sensitive
-      ? path.startsWith(tail.prefix)
-      : path.slice(0, tail.prefix.length).toLowerCase() ===
-        tail.prefix.toLowerCase();
-    if (!prefixMatches) continue;
-    const end = path.indexOf("/", tail.prefix.length);
-    if (end <= tail.prefix.length) continue;
-    const suffix = group.sensitive
-      ? path.slice(end)
-      : path.slice(end).toLowerCase();
-    const match = tail.suffixes[suffix];
-    if (match && match.entry.priority < before) {
-      selected = {
-        entry: match.entry,
-        tail: { name: match.name, start: tail.prefix.length, end },
-      };
-      before = match.entry.priority;
-    }
-  }
-  for (const chunk of group.chunks) {
-    if (chunk.firstPriority >= before) break;
-    const result = chunk.regexp.exec(path);
-    if (!result) continue;
-    const marker = chunk.markers[result.lastIndexOf("")];
-    if (!marker || marker.entry.priority >= before) continue;
-    selected = { entry: marker.entry, result, captures: marker.captures };
-    before = marker.entry.priority;
-    break;
-  }
-  for (const entry of group.fallback) {
-    if (entry.priority >= before) break;
-    const params = matchSegments(entry.variant.segments, path);
-    if (params !== undefined) {
-      selected = { entry, params };
-      break;
-    }
-  }
-  return selected;
 }
